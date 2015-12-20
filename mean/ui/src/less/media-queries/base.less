@@ -1,0 +1,236 @@
+/******************************************************************
+
+Stylesheet: Base Stylesheet
+
+******************************************************************/
+// Global values
+// --------------------------------------------------
+
+@white:                 #FFFFFF;
+@black:                 #000000;
+@orange:                #FF9800;	
+@light-blue:            #CFD8DC;	
+@med-blue:             	#607D8B;
+@gray-light:	        #B6B6B6;
+@gray-med:				#727272;
+@gray:					#353535;
+
+// --------------------------------------------------
+
+@font-face{font-family:'Roboto';font-style:normal;font-weight:300;src:local('Roboto Light'),local('Roboto-Light'),url(http://fonts.gstatic.com/s/roboto/v14/Hgo13k-tfSpn0qi1SFdUfT8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:400;src:local('Roboto Regular'),local('Roboto-Regular'),url(http://fonts.gstatic.com/s/roboto/v14/2UX7WLTfW3W8TclTUvlFyQ.woff) format('woff');}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:local('Roboto Medium'),local('Roboto-Medium'),url(http://fonts.gstatic.com/s/roboto/v14/RxZJdnzeo3R5zSexge8UUT8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:700;src:local('Roboto Bold'),local('Roboto-Bold'),url(http://fonts.gstatic.com/s/roboto/v14/d-6IYplOFocCacKzxwXSOD8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:900;src:local('Roboto Black'),local('Roboto-Black'),url(http://fonts.gstatic.com/s/roboto/v14/mnpfi9pxYH-Go5UiibESIj8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');}
+
+	body {
+		background-color:@white;
+		color:@gray;
+		font-weight:200;
+		font-size:14px;
+		font-family:'Roboto',Arial,Helvetica,sans-serif;
+	}
+	
+	strong {
+		font-weight:900;	
+	}
+	
+	h1 {
+		font-size:2em;	
+		font-weight:900;
+	}
+	h2 {
+		font-size:1.8em;	
+		color:@med-blue;	
+	}
+	h3 {
+		font-size:1.6em;
+		font-weight:900;
+  		margin:.5em 0;	
+	}
+	h4 {
+		font-size:1.4em;	
+		line-height:1.6em;
+		font-size:1.3em;
+		color:@orange;	
+	}
+	h5 {
+		font-size:1.2em;	
+	}
+	p {
+		line-height:1.8em;	
+	}
+	a {
+		color:@med-blue;	
+	}
+	a:hover {
+		color: darken(@med-blue, 20%);
+	}
+	.btn {
+		border:none;
+		border-radius:0;
+		font-weight: 500;
+	}
+	.btn-app-primary {
+		background-color:@orange;
+		border:1px solid darken(@orange, 10%);	
+		color:@white;	
+	}
+	.btn-app-primary:hover {
+		background-color:darken(@orange, 5%);
+		border:1px solid darken(@orange, 10%);	
+		color:darken(@white, 10%);	
+	}
+	.identity-header {
+		background-color:fade(@gray, 80%);
+		color:@white;
+		box-shadow: 0px 0px 10px 0px @gray;
+		
+		input, .btn {
+			border:fade(@gray, 80%) 1px solid;	
+		}
+		
+		.btn-search {
+			border-top-right-radius: 4px;
+			border-bottom-right-radius: 4px;
+		}
+	}
+	.app-title {	
+		font-weight:700;
+		letter-spacing:-1px;
+	}
+	.tagline {
+		margin:1em auto;
+		font-size:.9em;
+		font-weight:400;
+	}
+	
+	
+	.home {
+		background:@white url(../images/bg_home.jpg) no-repeat 50% 50% fixed;
+  		background-size: cover;	
+		
+		.content-panel {
+			margin-top:1.4em;
+			background-color:fade(@white, 95%);
+			padding-top:1.2em;
+			padding-bottom:1.2em;
+			color:@med-blue;
+			box-shadow: inset 0px 0px 10px 0px lighten(@gray, 40%);
+			border-radius: 4px;
+			
+			p {
+				margin-top:.8em;	
+			}
+		}
+		.info-tile {
+			
+			h3 {
+				font-weight:700;
+				color:@gray;
+				padding-top:1.2em;
+				padding-bottom:.5em;
+				margin:0;
+				margin-bottom:.4em;
+				border-bottom-color:@gray-light;
+				background-color:transparent;
+				
+				span {
+					font-size:1.5em;
+					color:@orange;
+					display:inline-block;
+					margin-right:.4em;
+				}
+			}
+			img {
+				width:260px;
+				margin-top:1.1em;	
+			}
+		}
+	}
+	
+	.content-panel {
+		margin-top:40px;	
+		
+		h2 {
+			font-size:2.2em;
+			font-weight:700;
+			span {
+				display:block;
+				font-weight:300;
+				color:@gray;
+				font-size:.8em;	
+			}
+			
+			border-left: 5px solid @orange;
+			padding-left: .5em;
+			
+		}
+	}
+	
+	.info-tile {
+		margin-bottom:1.2em;
+		border-top-left-radius:25px;
+		border-top-right-radius:25px;
+		padding-bottom:20px;
+		
+		h3 {
+			font-weight:300;
+			font-size:1.3em;
+			color:@white;
+			background-color:lighten(@gray, 20%);
+			padding:.4em;	
+			display:block;
+			border-bottom:2px solid darken(@gray, 5%);
+			border-top-left-radius:10px;
+			border-top-right-radius:10px;
+		}
+		h6 {
+			color:@med-blue;	
+		}
+	}
+	
+	.score {
+		color:@gray;
+		font-weight:900;
+		font-size:.9em;	
+		display:block;
+	}
+	.score-county {
+		color:@gray-light;
+		font-size:1.5em;	
+		font-weight:400;
+		display:block;
+		border:1px solid @gray-light;
+		margin-top:.9em;
+		height:52px;
+		line-height:50px;
+		border-radius:25px;
+		
+		img {
+			margin-right:.4em;
+			border-top-left-radius:25px;
+			border-bottom-left-radius:25px;
+		}
+	}
+	.tile-footer {
+		background-color:lighten(@gray-light, 25%);
+		font-size:.9em;	
+		font-weight:300;
+		padding:.4em;
+		border-top:2px solid lighten(@gray-light, 20%);
+		border-bottom-left-radius:10px;
+		border-bottom-right-radius:10px;
+	}
+	
+	.progress-bar {
+		background-color:@med-blue;	
+	}
+	.progress {
+		margin-bottom:.1em;	
+	}
+	
+	.desc {
+		margin-bottom:.4em;	
+		font-size:70%;
+	}
