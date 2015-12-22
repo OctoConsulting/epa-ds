@@ -1,9 +1,9 @@
-*.sw*
-*~
-npm-debug.log
-build/
-bin/
 node_modules/
-test/
-vendor/
+bower_components/
+.sass-cache/
 .idea/
+.tmp/
+dist/
+src/app/env.config.js
+IEDriverServer.exe
+phantomjs.exe

@@ -1,21 +1,53 @@
-<!DOCTYPE html>
-<html ng-app="app" ng-controller="AppController">
+<!doctype html>
+<html ng-app="octoLabs" >
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Inflo | Know Your Neighborhood</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <title>Inflo</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-    <% styles.forEach( function ( file ) { %>
-    <link rel="stylesheet" type="text/css" href="<%= file %>" /><% }); %>
+    <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- run `gulp inject` to automatically populate bower styles dependencies -->
+    <!-- endbower -->
+    <!-- endbuild -->
 
-
+    <!-- build:css({.tmp/serve,src}) styles/app.css -->
+    <!-- inject:css -->
+    <!-- css files will be automatically insert here -->
+    <!-- endinject -->
+    <!-- endbuild -->
   </head>
-  <body ng-class="$state.current.name==='home' ? 'home':''">
+  <body class="hold-transition skin-red sidebar-mini" ng-class="{'login-page': $state.includes('app.login')}" ng-controller="BodyController">
+    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
 
-    <div ui-view="header"></div>
-    <div ui-view="main"></div>
+    <div class="wrapper" ng-class="{'login-page': $state.includes('app.login')}">
+        <div id="header-view" ui-view="header"></div>
+        <div id="content" ui-view tabindex="-1"></div>
+        <div ui-view="footer"></div>
+    </div>
+    
+
+
+    <!-- build:js(src) scripts/vendor.js -->
+    <!-- bower:js -->
+    <!-- run `gulp inject` to automatically populate bower script dependencies -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->
+    <!-- inject:js -->
+    <!-- js files will be automatically insert here -->
+    <!-- endinject -->
+
+    <!-- inject:partials -->
+    <!-- angular templates will be automatically converted in js and inserted here -->
+    <!-- endinject -->
+    <!-- endbuild -->
+
+    <base href="/">
+    
   </body>
-  <!-- compiled JavaScript -->
-  <% scripts.forEach( function ( file ) { %>
-  <script type="text/javascript" src="<%= file %>"></script><% }); %>
-
 </html>
