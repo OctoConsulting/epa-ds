@@ -10,6 +10,7 @@ var mongoose = require('mongoose'),
 	eqiDet = mongoose.model('eqidetail'),
 	calcService = require('../app/controllers/calc.server.controller'),
 	Q = require('q'),
+	async = require('async'),
 	_ = require('lodash');
 
 module.exports = function(app) {
@@ -32,21 +33,21 @@ module.exports = function(app) {
 		return deferred.promise;
 	};
 
-
 	setMinVariables()
 		.then(function(success) {
 			app.locals.minVarArray = success;
 		});
 
-	setMaxVariables()
-		.then(function(success) {
-			app.locals.maxVarArray = success;
+		setMaxVariables()
+			.then(function(success) {
+				app.locals.maxVarArray = success;
 		});
 
-	setAvgVariables()
-		.then(function(success) {
-			app.locals.avgVarArray = success;
-		});
+		setAvgVariables()
+			.then(function(success) {
+				app.locals.avgVarArray = success;
+			});
+
 
 	var setMinEqis = function() {
 		var deferred = Q.defer();
@@ -66,20 +67,45 @@ module.exports = function(app) {
 		return deferred.promise;
 	};
 
+	var setTopFives = function(minValArray, maxValArray) {
+		var deferred = Q.defer();
+		calcService.topFiveListings(minValArray, maxValArray, deferred);
+		return deferred.promise;
+	};
 
-	setMinEqis()
-		.then(function(success) {
-			app.locals.minEqiArray = success;
-		});
 
-	setMaxEqis()
-		.then(function(success) {
-			app.locals.maxEqiArray = success;
-		});
-
-	setAvgEqis()
-		.then(function(success) {
-			app.locals.avgEqiArray = success;
-		});
-
+	  async.series([
+			function(callback) {
+				console.log('Calling setMinEqis:  ');
+				setMinEqis()
+					.then(function(success) {
+						app.locals.minEqiArray = success;
+						callback(null);
+					});
+			},
+			function(callback) {
+				console.log('Calling setMaxEqis :  ');
+				setMaxEqis()
+					.then(function(success) {
+						app.locals.maxEqiArray = success;
+						callback(null);
+					});
+			},
+			function(callback) {
+				setAvgEqis()
+					.then(function(success) {
+						app.locals.avgEqiArray = success;
+						callback(null);
+					});
+			},
+			function(callback) {
+				console.log('Calling Top Five with:  ' + app.locals.minEqiArray);
+				setTopFives(app.locals.minEqiArray, app.locals.maxEqiArray)
+					.then(function(success) {
+						app.locals.topFives = success;
+						console.log('app values : ' + app.locals.topFives);
+						callback(null);
+					});
+			},
+		]);
 };

@@ -4,11 +4,12 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
+  async = require('async'),
 	errorHandler = require('./errors.server.controller'),
 	eqiRes = mongoose.model('eqiresult'),
 	eqiDet = mongoose.model('eqidetail');
 
-exports.calculateEqiPercentage = function(minVal, maxVal, value, isPositive) {
+var pctFn = exports.calculateEqiPercentage = function(minVal, maxVal, value, isPositive) {
 
 	var step = 0.1;
 	var position = (value + step - minVal) / step;
@@ -284,6 +285,77 @@ exports.averageEqi = function(deferred) {
 	});
 
 };
+
+ var topFiveEqiByCategory = function(domainArg, minEqiArray, maxEqiArray, callback) {
+	var domainObj = {};
+	domainObj.domain = domainArg;
+
+	var topFive = [];
+
+	eqiRes.find({"domain":domainArg}).sort({"eqi":-1}).limit(5).exec(function(err, results) {
+		if (err) {
+			console.log(err);
+			return;
+		}
+		// console.log(results);
+		for (var item in results) {
+			var detailObj = {};
+			detailObj.stateCode = results[item].stateCode;
+			detailObj.countyCode = results[item].countyCode;
+			detailObj.countyDescription = results[item].countyDescription;
+			detailObj.eqi = results[item].eqi;
+
+			var minVal, maxVal;
+      if(domainArg === 'Air') {
+				minVal = minEqiArray.minAir;
+				maxVal = maxEqiArray.maxAir;
+			}
+			else if (domainArg === 'Water') {
+				minVal = minEqiArray.minWater;
+				maxVal = maxEqiArray.maxWater;
+			}
+			else if (domainArg === 'Built'){
+				minVal = minEqiArray.minBuilt;
+				maxVal = maxEqiArray.maxBuilt;
+			}
+			else if (domainArg === 'Sociodemographic'){
+				minVal = minEqiArray.minSocio;
+				maxVal = maxEqiArray.maxSocio;
+			}
+			else if (domainArg === 'Overall'){
+				minVal = minEqiArray.minOverall;
+				maxVal = maxEqiArray.maxOverall;
+			}
+			detailObj.overall_perc = pctFn(minVal, maxVal, detailObj.eqi, true);
+			topFive.push(detailObj);
+		}
+		domainObj.top_five = topFive;
+    console.log('domainObj : ' + JSON.stringify(domainObj));
+		callback(null,domainObj);
+	});
+
+};
+
+exports.topFiveListings = function(minEqiArray, maxEqiArray, deferred) {
+	async.series([
+		function (callback) {
+    	var resultObj = topFiveEqiByCategory('Air',minEqiArray, maxEqiArray, callback);
+		},
+		function (callback) {
+			var resultObj = topFiveEqiByCategory('Water',minEqiArray, maxEqiArray, callback);
+		},
+		function (callback) {
+			var resultObj = topFiveEqiByCategory('Built',minEqiArray, maxEqiArray, callback);
+		},
+		function (callback) {
+			var resultObj = topFiveEqiByCategory('Sociodemographic',minEqiArray, maxEqiArray, callback);
+		}
+	], function(err, results) {
+		 console.log('RESULTS : ' + results);
+		 deferred.resolve(results);
+	});
+};
+
 
 
 exports.averageVariables = function(deferred) {

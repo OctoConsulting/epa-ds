@@ -44,6 +44,12 @@ exports.autoComplete = function(req, res) {
 	});
 };
 
+//This function exposes service for Top Five for each category
+exports.topFives = function(req, res) {
+		res.json(req.app.locals.topFives);
+};
+
+
 //This funciton returns aggregate results and score for a given county
 exports.searchByCountyState = function(req, res) {
 	var stateCounty = req.query.q;
