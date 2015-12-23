@@ -7,12 +7,12 @@
   /** @ngInject */
   function routeConfig($stateProvider) {
     $stateProvider.state({
-      name: 'app.results',
-      url: '/results?q&fips',
+      name: 'app.compare',
+      url: '/compare',
       views: {
         '': {
-          templateUrl: 'app/views/results/results.html',
-          controller: 'ResultsController'
+          templateUrl: 'app/views/compare/compare.html',
+          controller: 'CompareController'
         }
       }
       // resolve: {
