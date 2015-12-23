@@ -1,0 +1,5 @@
+.navbar-inverse { background-color: #3498db; border-color: #3498db; }
+.navbar-inverse .navbar-brand { color: #fff; }
+
+.hero { background-color: #3498db; padding: 140px 0 110px; margin: 0 0 40px; }
+.no-bg { background-color: transparent; }
