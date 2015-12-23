@@ -6,6 +6,7 @@ var init = require('./config/init')(),
 	config = require('./config/config'),
 	mongoose = require('mongoose'),
 	chalk = require('chalk'),
+	cache = require('./config/cache'),
 	Q = require('q');
 
 /**
@@ -28,6 +29,7 @@ mongoose.connection.on('error', function(err) {
 
 // Init the express application
 var app = require('./config/express')(db);
+cache(app);
 
 // Bootstrap passport config
 require('./config/passport')();
