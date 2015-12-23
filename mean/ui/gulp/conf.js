@@ -27,9 +27,12 @@ exports.paths = {
  *  to inject css preprocessor deps and js files in karma
  */
 exports.wiredep = {
-  exclude: [/bootstrap\.js/],
+  exclude: [/bootstrap\.js/,/bootstrap\.css/,/bootstrap\.less/],
   directory: 'bower_components',
   overrides: {
+    'bootswatch-dist' : {
+      main: ['css/bootstrap.min.css']
+    },
     'jquery-ui': {
       main: ['ui/core.js', 'ui/widget.js', 'ui/datepicker.js']
     },

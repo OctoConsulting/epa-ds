@@ -13,14 +13,6 @@
 @icon-font-path: '../../bower_components/bootstrap/fonts/';
 @fa-font-path: '../../bower_components/font-awesome/fonts';
 
-.thumbnail {
-  height: 200px;
-
-  img.pull-right {
-    width: 50px;
-  }
-}
-
 div[ui-view=content] {
   outline: none !important;
 }
@@ -29,64 +21,12 @@ div[ui-view=content] {
   cursor: pointer;
 }
 
-@import (inline) "../../bower_components/admin-lte/dist/css/AdminLTE.css";
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
-}
+.navbar-inverse { background-color: #3498db; border-color: #3498db; }
+.navbar-inverse .navbar-brand { color: #fff; }
 
-input[type=number] {
-    -moz-appearance:textfield;
-}
-
-.section-divider {
-	margin-top:30px;
-	padding:0;
-}
-
-.section-divider.section-start {
-	margin-top:0;
-}
-
-.section-divider hr {
-	margin-top:5px;
-	margin-bottom:0;
-}
-
-#content, .content-wrapper {
-  min-height:850px;
-}
-
-[st-sort], [ng-click] {
-    cursor:pointer;
-}
-
-
-[st-sort].st-sort-ascent:after {
-    content: "\f0de";
-    float: right;
-    font-family: fontawesome;
-}
-
-[st-sort].st-sort-descent:after {
-    content: "\f0dd";
-    float: right;
-    font-family: fontawesome;
-}
-
-[st-sort]:after {
-    content: "\f0dc";
-    float: right;
-    font-family: fontawesome;
-    color: rgba(50,50,50,.5);
-    margin-left:3px;
-}
-
-body.skin-red .login-page {
-  background: #d2d6de;
-}
+.hero { background-color: #3498db; padding: 140px 0 110px; margin: 0 0 40px; }
+.no-bg { background-color: transparent; }
 
 /**
  *  Do not remove this comments bellow. It's the markers used by gulp-inject to inject
