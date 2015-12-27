@@ -11,7 +11,8 @@
       'ui.bootstrap',
       'toastr',
       'ngAria',
-      'chart.js'
+      'chart.js',
+      'angular.filter'
     ]);
 
 })();

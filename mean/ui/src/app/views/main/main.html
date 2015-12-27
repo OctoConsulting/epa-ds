@@ -14,20 +14,35 @@
 
 <div class="hero">
   <div class="container">
-    <div class="row">
+    <div class="row" ng-show="!comparing">
       <div class="col-md-6 col-md-offset-2 text-right">
         <form>
-          <div class="form-group">
-            <input type="text" class="form-control input-lg" placeholder="Search for Fairfax County, VA">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control input-lg" placeholder="Compare to Alexandria City, VA">
+          <div class="input-group">
+            <input ng-disabled="loginLoading" autofocus type="text" ng-model="query" typeahead-min-length="2" typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" typeahead-on-select='onSelect($item, $model, $label)' class="form-control input-lg" placeholder="Search for Fairfax County, VA">
+            <span class="input-group-btn">
+              <button class="btn btn-success btn-lg" type="button" ng-click="search();"><i class="fa fa-search"></i><span class="sr-only">Search</span></button>
+            </span>
           </div>
         </form>
       </div>
       <div class="col-md-2 text-left">
-        <a class="btn btn-success btn-lg" type="button" href="compare-landing.html">Search</a>
+        <a class="btn btn-info btn-lg" type="button" ng-click="comparing=true">Compare</a>
       </div>
+    </div>
+    <div class="row" ng-show="comparing">
+      <div class="col-md-6 col-md-offset-2 text-right">
+        <form>
+          <div class="form-group">
+            <input ng-disabled="loginLoading" autofocus type="text" ng-model="query" typeahead-min-length="2" typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" typeahead-on-select='onSelect($item, $model, $label)' class="form-control input-lg" placeholder="Search for Fairfax County, VA">
+          </div>
+          <div class="form-group">
+            <input ng-disabled="loginLoading" autofocus type="text" ng-model="queryCompare" typeahead-min-length="2" typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" typeahead-on-select='onSelect($item, $model, $label)' class="form-control input-lg" placeholder="Search for Alexandria City, VA">
+          </div>
+        </form>
+      </div>
+      <div class="col-md-2 text-left">
+        <a class="btn btn-success btn-lg" type="button" ng-click="search();">Search</a>
+      </div>    
     </div>
   </div>
 </div>
