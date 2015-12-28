@@ -288,7 +288,7 @@ exports.averageEqi = function(deferred) {
 
  var topFiveEqiByCategory = function(domainArg, minEqiArray, maxEqiArray, callback) {
 	var domainObj = {};
-	domainObj.domain = domainArg;
+//	domainObj.domain = domainArg;
 
 	var topFive = [];
 
@@ -329,7 +329,7 @@ exports.averageEqi = function(deferred) {
 			detailObj.overall_perc = pctFn(minVal, maxVal, detailObj.eqi, true);
 			topFive.push(detailObj);
 		}
-		domainObj.top_five = topFive;
+		domainObj[domainArg] = topFive;
     console.log('domainObj : ' + JSON.stringify(domainObj));
 		callback(null,domainObj);
 	});
