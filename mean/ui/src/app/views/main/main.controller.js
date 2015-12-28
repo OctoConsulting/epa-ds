@@ -6,6 +6,7 @@
 		})
 		.controller('MainController', /** @ngInject */ function ($scope, Restangular, $state, $filter, toastr, topFives) {
 			$scope.hasError = 0;
+			$scope.fullSearchBar=true;
 			$scope.comparing = false;
 			$scope.topFives = {};
 			if(topFives.length) {
@@ -17,20 +18,25 @@
 
 
       $scope.search = function () {
-      	if(!$scope.query && !$scope.queryCompare) {
-      		toastr.error("Please select a county to search for.");
-      		return false;
+      	if($scope.comparing) {
+					if(!$scope.query || !$scope.queryCompare) {
+						toastr.error("Please select two counties to compare.");
+						return false;
+					}
+	      	else {
+						$state.transitionTo('app.compare', {'query':$scope.query,'queryCompare':$scope.queryCompare});
+	      	}
       	}
-      	else if(!$scope.query && $scope.queryCompare) {
-      		toastr.error("Please select two counties to compare.");
-      		return false;
-      	}
-      	else if($scope.query && !$scope.queryCompare) {
-					$state.transitionTo('app.results', {'query':$scope.query});
-      	}
-      	else if($scope.query && $scope.queryCompare) {
-					$state.transitionTo('app.compare', {'query':$scope.query,'queryCompare':$scope.queryCompare});
-      	}      	
+      	else {
+	      	if(!$scope.query) {
+	      		toastr.error("Please select a county to search for.");
+	      		return false;
+	      	}
+					else {
+						$state.transitionTo('app.results', {'query':$scope.query});
+	     		}
+
+	      }      	
       };
 
       $scope.getLocation = function(val) {
