@@ -100,6 +100,7 @@ module.exports = function(db) {
 	app.disable('x-powered-by');
 
 	// Setting the app router and static folder
+	console.log('PATH is : ' + path.resolve('./ui/build'));
 	app.use(express.static(path.resolve('./ui/build')));
 
 	// CookieParser should be above session
