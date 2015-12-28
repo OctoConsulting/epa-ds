@@ -9,6 +9,7 @@ var mongoose = require('mongoose'),
 	eqiRes = mongoose.model('eqiresult'),
 	eqiDet = mongoose.model('eqidetail');
 
+//Calculate Percentile value for given variabl value and context
 var pctFn = exports.calculateEqiPercentage = function(minVal, maxVal, value, isPositive) {
 
 	var step = 0.1;
@@ -21,6 +22,7 @@ var pctFn = exports.calculateEqiPercentage = function(minVal, maxVal, value, isP
 
 };
 
+//Calculate Percentile value for domain level value and context
 exports.calculateOtherPercentage = function(minVal, maxVal, value) {
 
 	if (value >= 0)
@@ -30,6 +32,7 @@ exports.calculateOtherPercentage = function(minVal, maxVal, value) {
 
 };
 
+//Calculate Percentile value for Unemployment value
 exports.calculateUnemploymentPercentage = function(minVal, maxVal, value) {
 
 	if (value >= 0)
@@ -51,6 +54,7 @@ exports.maximumValue = function(array) {
 
 };
 
+//Determine Rating for a Percentile value
 exports.rating = function(percent) {
 
 	if (percent > 0 && percent <= 40) {
@@ -63,6 +67,7 @@ exports.rating = function(percent) {
 
 };
 
+//Retrieve Minimum variable values from Eqidetails MongoDB collection
 exports.minimumVariables = function(deferred) {
 	var varArray = {};
 	eqiDet.aggregate([
@@ -120,6 +125,7 @@ exports.minimumVariables = function(deferred) {
 
 };
 
+//Retrieve Maximum variable values from Eqidetails MongoDB collection
 exports.maximumVariables = function(deferred) {
 
 	var varArray = {};
@@ -176,7 +182,7 @@ exports.maximumVariables = function(deferred) {
 
 };
 
-
+//Retrieve Minimum Eqi values from Eqiresults MongoDB collection
 exports.minimumEqi = function(deferred) {
 	var varArray = {};
 	eqiRes.aggregate([{
@@ -214,6 +220,7 @@ exports.minimumEqi = function(deferred) {
 
 };
 
+//Retrieve Maximum Eqi values from Eqiresults MongoDB collection
 exports.maximumEqi = function(deferred) {
 
 	var varArray = {};
@@ -250,6 +257,7 @@ exports.maximumEqi = function(deferred) {
 
 };
 
+//Retrieve Average Eqi values from Eqiresults MongoDB collection
 exports.averageEqi = function(deferred) {
 
 	var varArray = {};
@@ -286,13 +294,12 @@ exports.averageEqi = function(deferred) {
 
 };
 
+//Retrieve Top Five Counties based on Eqi value and their scores from Eqiresults MongoDB collection given a domain
  var topFiveEqiByCategory = function(domainArg, minEqiArray, maxEqiArray, callback) {
 	var domainObj = {};
-//	domainObj.domain = domainArg;
-
 	var topFive = [];
 
-	eqiRes.find({"domain":domainArg}).sort({"eqi":-1}).limit(5).exec(function(err, results) {
+	eqiRes.find({'domain':domainArg}).sort({'eqi':-1}).limit(5).exec(function(err, results) {
 		if (err) {
 			console.log(err);
 			return;
@@ -336,6 +343,7 @@ exports.averageEqi = function(deferred) {
 
 };
 
+//Retrieve Top Five Counties based on Eqi value and their scores from Eqiresults MongoDB collection for all domains
 exports.topFiveListings = function(minEqiArray, maxEqiArray, deferred) {
 	async.series([
 		function (callback) {
@@ -357,7 +365,7 @@ exports.topFiveListings = function(minEqiArray, maxEqiArray, deferred) {
 };
 
 
-
+//Retrieve Average variable values from Eqidetails MongoDB collection
 exports.averageVariables = function(deferred) {
 	var varArray = {};
 	eqiDet.aggregate([

@@ -14,25 +14,28 @@ var mongoose = require('mongoose'),
 	_ = require('lodash');
 
 module.exports = function(app) {
-
+ //Function to retrieve Min value of all variables
 	var setMinVariables = function() {
 		var deferred = Q.defer();
 		calcService.minimumVariables(deferred);
 		return deferred.promise;
 	};
 
+//Function to retrieve Max value of all variables
 	var setMaxVariables = function() {
 		var deferred = Q.defer();
 		calcService.maximumVariables(deferred);
 		return deferred.promise;
 	};
 
+//Function to retrieve Average value of all variables
 	var setAvgVariables = function() {
 		var deferred = Q.defer();
 		calcService.averageVariables(deferred);
 		return deferred.promise;
 	};
 
+  //Cache Min, Max and Average values in express app instance on startup
 	setMinVariables()
 		.then(function(success) {
 			app.locals.minVarArray = success;
@@ -48,32 +51,35 @@ module.exports = function(app) {
 				app.locals.avgVarArray = success;
 			});
 
-
+ //Function to retrieve Min value for each Domain
 	var setMinEqis = function() {
 		var deferred = Q.defer();
 		calcService.minimumEqi(deferred);
 		return deferred.promise;
 	};
 
+ //Function to retrieve Max value for each Domain
 	var setMaxEqis = function() {
 		var deferred = Q.defer();
 		calcService.maximumEqi(deferred);
 		return deferred.promise;
 	};
 
+ //Function to retrieve Average value for each Domain
 	var setAvgEqis = function() {
 		var deferred = Q.defer();
 		calcService.averageEqi(deferred);
 		return deferred.promise;
 	};
 
+ //Function to retrieve Top Five Counties for each domain
 	var setTopFives = function(minValArray, maxValArray) {
 		var deferred = Q.defer();
 		calcService.topFiveListings(minValArray, maxValArray, deferred);
 		return deferred.promise;
 	};
 
-
+ //Cache Domain Min, Max, Average and Top Five Counties in express app instance on startup
 	  async.series([
 			function(callback) {
 				console.log('Calling setMinEqis:  ');

@@ -175,8 +175,7 @@ exports.searchByCountyState = function(req, res) {
 	var setEqiVals = function(results, minEqiArray, maxEqiArray, avgEqiArray) {
 
 		if (minEqiArray === undefined && maxEqiArray === undefined &&
-			avgEqiArray === undefined) return
-		false;
+			avgEqiArray === undefined) return	false;
 
 		for (var i = 0; i < results.length; i++) {
 			var percent = 0;
