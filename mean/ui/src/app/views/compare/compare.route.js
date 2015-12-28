@@ -19,11 +19,11 @@
           countyData: function(Restangular, $stateParams) {
               return Restangular.one('api').customGET('search',{'q':$stateParams.query});
           },
-          populationData: function(Restangular, $stateParams) {
-              return Restangular.one('api').customGET('getPopulationInfo',{'q':$stateParams.fips});
+          populationData: function(Restangular, $stateParams, countyData) {
+              return Restangular.one('api').customGET('getPopulationInfo',{'q':countyData.stfips});
           },
-          housingData: function(Restangular, $stateParams) {
-              return Restangular.one('api').customGET('getHousingInfo',{'q':$stateParams.fips});
+          housingData: function(Restangular, $stateParams, countyData) {
+              return Restangular.one('api').customGET('getHousingInfo',{'q':countyData.stfips});
           }
       }
     });

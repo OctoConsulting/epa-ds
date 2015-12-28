@@ -15,9 +15,14 @@
     //RestangularProvider.setBaseUrl('/api');
 
     $urlRouterProvider.otherwise( '/' );
-    RestangularProvider.setBaseUrl(location.protocol + '//' + location.hostname + (location.port && ':' + 3000) + '/inflo');
-
-
+    if(location.hostname === 'localhost') {
+      RestangularProvider.setBaseUrl(location.protocol + '//' + location.hostname + (location.port && ':' + 3000));
+    }
+    else {
+      RestangularProvider.setBaseUrl(location.protocol + '//' + location.hostname + (location.port && ':' + location.port) + location.pathname);
+    }
+    
+    
     $locationProvider.html5Mode(true);
 
   }
