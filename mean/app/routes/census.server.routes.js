@@ -8,9 +8,9 @@ var census = require('../../app/controllers/census.server.controller');
 module.exports = function(app) {
 
 	app.route('/api/getHousingInfo')
-		.get(census.getHousingInfo);				
+		.get(census.getHousingInfo); 
 
 	app.route('/api/getPopulationInfo')
-		.get(census.getPopulationInfo);	
+		.get(census.getPopulationInfo);
 
 };
