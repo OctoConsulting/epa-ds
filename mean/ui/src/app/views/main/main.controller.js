@@ -4,24 +4,28 @@
     .controller('BodyController', /** @ngInject */ function ($scope, $state) {
 			$scope.$state = $state;
 		})
-		.controller('MainController', /** @ngInject */ function ($scope, Restangular, $state, $filter) {
+		.controller('MainController', /** @ngInject */ function ($scope, Restangular, $state, $filter, toastr, topFives) {
 			$scope.hasError = 0;
 			$scope.comparing = false;
+			$scope.topFives = {};
+			$scope.topFives.air = topFives[0].Air;
+			$scope.topFives.water = topFives[1].Water;
+			$scope.topFives.built = topFives[2].Built;
+			$scope.topFives.socio = topFives[3].Sociodemographic;
 
       $scope.search = function () {
-          $state.transitionTo('app.compare', {'query':$scope.query,'queryCompare':$scope.queryCompare});
-          /*
-          $scope.loginLoading = true;
-          Restangular.one('api').customGET('search',{'q':$scope.query})
-          .then(function(result) {
-              $scope.loginLoading = false;
-              //$scope.hasError = 0;
-              $state.transitionTo('app.compare', {'query':$scope.query,'queryCompare':$scope.queryCompare});
-          }, function() {
-              $scope.loginLoading = false;
-              //$scope.hasError = 1;
-          });
-				*/
+      	if(!$scope.query && !$scope.queryCompare) {
+      		toastr.error("Please select a county to search for.");
+      		return false;
+      	}
+
+      	if(!$scope.query && $scope.queryCompare) {
+      		toastr.error("Please select two counties to compare.");
+      		return false;
+      	}
+
+        $state.transitionTo('app.compare', {'query':$scope.query,'queryCompare':$scope.queryCompare});
+      	
       };
 
       $scope.getLocation = function(val) {

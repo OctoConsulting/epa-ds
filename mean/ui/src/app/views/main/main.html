@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Inflo</a>
+      <a class="navbar-brand" ui-sref="app.main">Inflo</a>
     </div>
   </div>
 </nav>
@@ -59,26 +59,10 @@
                 <th>County</th>
                 <th>Score</th>
               </tr>
-              <tr>
-                <td>County1</td>
-                <td>Score1</td>
-              </tr>
-              <tr>
-                <td>County2</td>
-                <td>Score2</td>
-              </tr>
-              <tr>
-                <td>County3</td>
-                <td>Score3</td>
-              </tr>
-              <tr>
-                <td>County4</td>
-                <td>Score4</td>
-              </tr>
-              <tr>
-                <td>County5</td>
-                <td>Score5</td>
-              </tr>              
+              <tr ng-repeat="row in topFives.socio">
+                <td>{{row.countyDescription}}, {{row.stateCode}}</td>
+                <td>{{row.overall_perc | number:2}}%</td>
+              </tr>             
             </table>
           </div>
         </div>
@@ -90,26 +74,10 @@
                 <th>County</th>
                 <th>Score</th>
               </tr>
-              <tr>
-                <td>County1</td>
-                <td>Score1</td>
-              </tr>
-              <tr>
-                <td>County2</td>
-                <td>Score2</td>
-              </tr>
-              <tr>
-                <td>County3</td>
-                <td>Score3</td>
-              </tr>
-              <tr>
-                <td>County4</td>
-                <td>Score4</td>
-              </tr>
-              <tr>
-                <td>County5</td>
-                <td>Score5</td>
-              </tr>              
+              <tr ng-repeat="row in topFives.built">
+                <td>{{row.countyDescription}}, {{row.stateCode}}</td>
+                <td>{{row.overall_perc | number:2}}%</td>
+              </tr>               
             </table>
           </div>
         </div>
@@ -121,25 +89,9 @@
                 <th>County</th>
                 <th>Score</th>
               </tr>
-              <tr>
-                <td>County1</td>
-                <td>Score1</td>
-              </tr>
-              <tr>
-                <td>County2</td>
-                <td>Score2</td>
-              </tr>
-              <tr>
-                <td>County3</td>
-                <td>Score3</td>
-              </tr>
-              <tr>
-                <td>County4</td>
-                <td>Score4</td>
-              </tr>
-              <tr>
-                <td>County5</td>
-                <td>Score5</td>
+              <tr ng-repeat="row in topFives.air">
+                <td>{{row.countyDescription}}, {{row.stateCode}}</td>
+                <td>{{row.overall_perc | number:2}}%</td>
               </tr>              
             </table>
           </div>
@@ -152,25 +104,9 @@
                 <th>County</th>
                 <th>Score</th>
               </tr>
-              <tr>
-                <td>County1</td>
-                <td>Score1</td>
-              </tr>
-              <tr>
-                <td>County2</td>
-                <td>Score2</td>
-              </tr>
-              <tr>
-                <td>County3</td>
-                <td>Score3</td>
-              </tr>
-              <tr>
-                <td>County4</td>
-                <td>Score4</td>
-              </tr>
-              <tr>
-                <td>County5</td>
-                <td>Score5</td>
+              <tr ng-repeat="row in topFives.water">
+                <td>{{row.countyDescription}}, {{row.stateCode}}</td>
+                <td>{{row.overall_perc | number:2}}%</td>
               </tr>              
             </table>
           </div>

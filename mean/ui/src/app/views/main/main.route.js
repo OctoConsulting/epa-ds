@@ -16,7 +16,9 @@
         }
       },
       resolve: {
-      
+        topFives: function(Restangular, $stateParams) {
+            return Restangular.one('api').one('topFives').getList();
+        }
       }
     });
   }

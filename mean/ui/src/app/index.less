@@ -21,12 +21,32 @@ div[ui-view=content] {
   cursor: pointer;
 }
 
+a:hover, a:active, a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn.focus:active, .btn.active.focus {
+	outline:0;
+}
 
 .navbar-inverse { background-color: #3498db; border-color: #3498db; }
 .navbar-inverse .navbar-brand { color: #fff; }
 
 .hero { background-color: #3498db; padding: 140px 0 110px; margin: 0 0 40px; }
 .no-bg { background-color: transparent; }
+
+ul[id^=typeahead] {
+	width:100%;
+	margin-top:6px;
+	height:300px;
+	overflow:auto;
+}
+
+ul[id^=typeahead] li a {
+	padding:10px;
+}
+
+
+ul[id^=typeahead] .dropdown-menu > .active > a, ul[id^=typeahead] .dropdown-menu > .active > a:hover, ul[id^=typeahead] .dropdown-menu > .active > a:focus {
+	background-color:#3498db;
+}
+
 
 /**
  *  Do not remove this comments bellow. It's the markers used by gulp-inject to inject
