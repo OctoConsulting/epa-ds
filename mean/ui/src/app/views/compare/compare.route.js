@@ -19,6 +19,14 @@
           countyData: function(Restangular, $stateParams) {
               return Restangular.one('api').customGET('search',{'q':$stateParams.query});
           },
+          countyDataCompare: function(Restangular, $stateParams) {
+            if($stateParams.queryCompare) {
+              return Restangular.one('api').customGET('search',{'q':$stateParams.queryCompare});
+            }
+            else {
+              return {};
+            }
+          },          
           populationData: function(Restangular, $stateParams, countyData) {
               return Restangular.one('api').customGET('getPopulationInfo',{'q':countyData.stfips});
           },

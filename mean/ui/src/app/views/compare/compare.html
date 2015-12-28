@@ -28,12 +28,12 @@
           <div class="col-md-4">
             <form>
               <div class="form-group">
-                <input ng-disabled="loginLoading" autofocus type="text" ng-model="query" typeahead-min-length="2" typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" typeahead-on-select='onSelect($item, $model, $label)' class="form-control input-lg" placeholder="National Average">
+                <input ng-disabled="loginLoading" autofocus type="text" ng-model="queryCompare" typeahead-min-length="2" typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" typeahead-on-select='onSelect($item, $model, $label)' class="form-control input-lg" placeholder="National Average">
               </div>
             </form>
           </div>
           <div class="col-md-2 text-center">
-            <button class="btn btn-success btn-lg" type="button">Compare</button>
+            <button class="btn btn-success btn-lg" type="button" ng-click="search();">Compare</button>
           </div>
         </div>
       </div>
@@ -42,31 +42,29 @@
     <div class="container">
       <div class="row">
         <div class="col-md-5 text-right">
-          <h4>{{ ::queryShow }}</h4>
+          <h4>{{countyData.county_name}}</h4>
           <hr />
-          <h5>totalscore</h5>
-          <h5>userscore</h5>
+          <h5>{{countyData.overall_result_perc  | number : 0}}%</h5>
           <p>&nbsp;</p>
-          <p>income</p>
-          <p>unemployed</p>
-          <p>crimes</p>
+          <p>{{countyData.detail.socio.income | currency}}</p>
+          <p>{{countyData.detail.socio.unemployed | number : 2}}</p>
+          <p>{{countyData.detail.socio.crimes | number : 2}}</p>
           <p>&nbsp;</p>
-          <p>highway</p>
-          <p>streets</p>
-          <p>traffic</p>
+          <p>{{countyData.detail.infra.highway | number : 2}}</p>
+          <p>{{countyData.detail.infra.streets | number : 2}}</p>
+          <p>{{countyData.detail.infra.fatalities | number : 2}}</p>
           <p>&nbsp;</p>
-          <p>nitro</p>
-          <p>sulfur</p>
-          <p>carbon</p>
+          <p>{{countyData.detail.air.nitro | number : 2}}</p>
+          <p>{{countyData.detail.air.sulfur | number : 2}}</p>
+          <p>{{countyData.detail.air.carbon | number : 2}}</p>
           <p>&nbsp;</p>
-          <p>drought</p>
-          <p>mercury</p>
-          <p>arsenic</p>
+          <p>{{countyData.detail.water.drought | number : 2}}</p>
+          <p>{{countyData.detail.water.mercury | number : 2}}</p>
+          <p>{{countyData.detail.water.arsenic | number : 2}}</p>
         </div>
         <div class="col-md-2 text-center">
           <h4>&nbsp;</h4>
           <hr />
-          <h5>&nbsp;</h5>
           <h5>&nbsp;</h5>
           <p><strong>People</strong></p>
           <p>income</p>
@@ -75,7 +73,7 @@
           <p><strong>Traffic</strong></p>
           <p>highway</p>
           <p>streets</p>
-          <p>traffic</p>
+          <p>fatalities</p>
           <p><strong>Air</strong></p>
           <p>nitro</p>
           <p>sulfur</p>
@@ -85,29 +83,48 @@
           <p>mercury</p>
           <p>arsenic</p>
         </div>
-        <div class="col-md-5">
-          <h4 ng-show="queryCompareShow">{{ ::queryCompareShow }}</h4>
-          <h4 ng-show="!queryCompareShow">National Average</h4>
+        <div class="col-md-5" ng-show="!queryCompareShow">
+          <h4>National Average</h4>
           <hr />
-          <h5>totalscore</h5>
-          <h5>userscore</h5>
+          <h5>&nbsp;</h5>
           <p>&nbsp;</p>
-          <p>income</p>
-          <p>unemployed</p>
-          <p>crimes</p>
+          <p>{{countyData.detail.socio.income_avg | currency}}</p>
+          <p>{{countyData.detail.socio.unemployed_avg | number : 2}}</p>
+          <p>{{countyData.detail.socio.crimes_avg | number : 2}}</p>
           <p>&nbsp;</p>
-          <p>highway</p>
-          <p>streets</p>
-          <p>traffic</p>
+          <p>{{countyData.detail.infra.highway_avg | number : 2}}</p>
+          <p>{{countyData.detail.infra.streets_avg | number : 2}}</p>
+          <p>{{countyData.detail.infra.fatalities_avg | number : 2}}</p>
           <p>&nbsp;</p>
-          <p>nitro</p>
-          <p>sulfur</p>
-          <p>carbon</p>
+          <p>{{countyData.detail.air.nitro_avg | number : 2}}</p>
+          <p>{{countyData.detail.air.sulfur_avg | number : 2}}</p>
+          <p>{{countyData.detail.air.carbon_avg | number : 2}}</p>
           <p>&nbsp;</p>
-          <p>drought</p>
-          <p>mercury</p>
-          <p>arsenic</p>
+          <p>{{countyData.detail.water.drought_avg | number : 2}}</p>
+          <p>{{countyData.detail.water.mercury_avg | number : 2}}</p>
+          <p>{{countyData.detail.water.arsenic_avg | number : 2}}</p>
         </div>
+        <div class="col-md-5" ng-show="queryCompareShow">
+          <h4>{{countyDataCompare.county_name}}</h4>
+          <hr />
+          <h5>&nbsp;</h5>
+          <p>&nbsp;</p>
+          <p>{{countyDataCompare.detail.socio.income | currency}}</p>
+          <p>{{countyDataCompare.detail.socio.unemployed | number : 2}}</p>
+          <p>{{countyDataCompare.detail.socio.crimes | number : 2}}</p>
+          <p>&nbsp;</p>
+          <p>{{countyDataCompare.detail.infra.highway | number : 2}}</p>
+          <p>{{countyDataCompare.detail.infra.streets | number : 2}}</p>
+          <p>{{countyDataCompare.detail.infra.fatalities | number : 2}}</p>
+          <p>&nbsp;</p>
+          <p>{{countyDataCompare.detail.air.nitro | number : 2}}</p>
+          <p>{{countyDataCompare.detail.air.sulfur | number : 2}}</p>
+          <p>{{countyDataCompare.detail.air.carbon | number : 2}}</p>
+          <p>&nbsp;</p>
+          <p>{{countyDataCompare.detail.water.drought | number : 2}}</p>
+          <p>{{countyDataCompare.detail.water.mercury | number : 2}}</p>
+          <p>{{countyDataCompare.detail.water.arsenic | number : 2}}</p>
+        </div>        
       </div>
     </div>
     <hr />
