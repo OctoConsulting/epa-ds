@@ -8,23 +8,30 @@
 			$scope.hasError = 0;
 			$scope.comparing = false;
 			$scope.topFives = {};
-			$scope.topFives.air = topFives[0].Air;
-			$scope.topFives.water = topFives[1].Water;
-			$scope.topFives.built = topFives[2].Built;
-			$scope.topFives.socio = topFives[3].Sociodemographic;
+			if(topFives.length) {
+				$scope.topFives.air = topFives[0].Air;
+				$scope.topFives.water = topFives[1].Water;
+				$scope.topFives.built = topFives[2].Built;
+				$scope.topFives.socio = topFives[3].Sociodemographic;				
+			}
+
 
       $scope.search = function () {
       	if(!$scope.query && !$scope.queryCompare) {
       		toastr.error("Please select a county to search for.");
       		return false;
       	}
-
-      	if(!$scope.query && $scope.queryCompare) {
+      	else if(!$scope.query && $scope.queryCompare) {
       		toastr.error("Please select two counties to compare.");
       		return false;
       	}
-
-        $state.transitionTo('app.compare', {'query':$scope.query,'queryCompare':$scope.queryCompare});
+      	else if($scope.query && !$scope.queryCompare) {
+					$state.transitionTo('app.results', {'query':$scope.query});
+      	}
+      	else if($scope.query && $scope.queryCompare) {
+					$state.transitionTo('app.compare', {'query':$scope.query,'queryCompare':$scope.queryCompare});
+      	}
+        
       	
       };
 

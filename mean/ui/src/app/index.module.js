@@ -12,7 +12,8 @@
       'toastr',
       'ngAria',
       'chart.js',
-      'angular.filter'
+      'angular.filter',
+      'stpa.morris'
     ]);
 
 })();
