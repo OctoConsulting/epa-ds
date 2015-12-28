@@ -44,18 +44,36 @@
     <div class="hero">
       <div class="container">
         <div class="row">
-          <div class="col-md-6 col-md-offset-2 text-right">
-            <form>
-              <div class="input-group">
-                <input type="text" class="form-control input-lg" placeholder="Search for Fairfax County, VA">
-                <span class="input-group-btn">
-                  <button class="btn btn-success btn-lg" type="button"><i class="fa fa-search"></i><span class="sr-only">Search</span></button>
-                </span>
+          <div class="col-md-8 col-md-offset-2">
+            <ul class="nav nav-pills" role="tablist">
+              <li role="presentation" class="active"><a href="#search" aria-controls="search" role="tab" data-toggle="pill">Search</a></li>
+              <li role="presentation"><a href="#compare" aria-controls="compare" role="tab" data-toggle="pill">Compare</a></li>
+            </ul>
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="search">
+                <form>
+                  <div class="input-group">
+                    <input type="text" class="form-control input-lg" placeholder="Search for Fairfax County, VA">
+                    <span class="input-group-btn">
+                      <button class="btn btn-success btn-lg" type="button"><i class="fa fa-search"></i><span class="sr-only">Search</span></button>
+                    </span>
+                  </div>
+                </form>  
               </div>
-            </form>
-          </div>
-          <div class="col-md-2 text-left">
-            <a class="btn btn-info btn-lg" type="button" href="compare.html">Compare</a>
+              <div role="tabpanel" class="tab-pane" id="compare">
+                <form class="form-inline">
+                  <div class="form-group">
+                    <label for="compare" class="sr-only">First compare county</label>
+                    <input type="text" class="form-control input-lg" placeholder="Fairfax County, VA" name="Search">
+                  </div>
+                  <div class="form-group">
+                    <label for="compare" class="sr-only">compare to county</label>
+                    <input type="text" class="form-control input-lg" placeholder="Alexandria City, VA" name="compare">
+                  </div>
+                  <button class="btn btn-success btn-lg" type="button">Compare</button>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
       </div>
