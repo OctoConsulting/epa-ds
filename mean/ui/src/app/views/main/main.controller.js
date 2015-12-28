@@ -30,9 +30,7 @@
       	}
       	else if($scope.query && $scope.queryCompare) {
 					$state.transitionTo('app.compare', {'query':$scope.query,'queryCompare':$scope.queryCompare});
-      	}
-        
-      	
+      	}      	
       };
 
       $scope.getLocation = function(val) {

@@ -35,7 +35,7 @@
 
             $scope.search = function () {
               if($scope.queryCompare.length) {
-                  $staate.transitionTo('app.compare', {'query':$scope.query,'queryCompare':$scope.queryCompare}, {'reload':true});
+                  $state.transitionTo('app.compare', {'query':$scope.query,'queryCompare':$scope.queryCompare}, {'reload':true});
               }
               else {
                   $state.transitionTo('app.compare', {'query':$scope.query}, {'reload':true});
