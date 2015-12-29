@@ -8,7 +8,7 @@ LiveSafe is deployed using [Docker](http://docker.com). In order to deploy the L
 	$ cd setup-livesafe
 	$ docker-compose -f docker-compose.yml up -d
 	
-This will start the container listening on port 80, you can specify a different port by changing docker-compose.yml file under setup-livesafe. Also, this port will have to be open and accessible on your server.
+This will start the container listening on port 80, you can specify a different port by changing docker-compose.yml file. Also, this port will have to be open and accessible on your server.
 
 ## Get the container ID of the image octoconsulting/epa-ds-webapp with docker ps ##
 	# docker ps
