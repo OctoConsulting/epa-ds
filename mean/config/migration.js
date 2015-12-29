@@ -15,7 +15,26 @@ var count ;
 var rcount;
 var database;
 
+
 async.series([
+  function(callback) {
+    console.log("Uri is " + config.db.uri);
+    MongoClient.connect(config.db.uri, function (err, db) {
+    		db.open(function(err,db){
+    			assert.equal(null,err);
+          database = db;
+          db.listCollections({name: 'eqidetails'}).next(function(err, collinfo) {
+            if (collinfo) {
+                console.log('Collection Exists');
+                cb(app);
+                return callback(true);
+            } else {
+                callback(null);
+            }
+          });
+        });
+     });
+   },
   function(callback) {
     console.log("Reading  eqi_details.json");
       fs.readFile('./config/eqi_details.json', 'utf8', function (err, data) {
@@ -34,17 +53,7 @@ async.series([
       callback(null);
     });
   },
-  function(callback) {
-    console.log("Uri is " + config.db.uri);
-    MongoClient.connect(config.db.uri, function (err, db) {
-    		db.open(function(err,db){
-    			assert.equal(null,err);
-          database = db;
-          callback(null);
-        });
-     });
-   },
-   function(callback) {
+ function(callback) {
       database.collection('eqidetails').drop( function(err, response) {
         database.command({ping : 1},function(err,result){
           assert.equal(null,err);
