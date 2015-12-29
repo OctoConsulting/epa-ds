@@ -11,10 +11,12 @@ var mongoose = require('mongoose'),
 	calcService = require('../app/controllers/calc.server.controller'),
 	Q = require('q'),
 	async = require('async'),
+	migrate = require('./migration'),
 	_ = require('lodash');
 
-module.exports = function(app) {
- //Function to retrieve Min value of all variables
+var fnAggregates = function(app)  {
+
+	//Function to retrieve Min value of all variables
 	var setMinVariables = function() {
 		var deferred = Q.defer();
 		calcService.minimumVariables(deferred);
@@ -114,4 +116,8 @@ module.exports = function(app) {
 					});
 			},
 		]);
+};
+
+module.exports = function(app) {
+	 migrate(app, fnAggregates);
 };

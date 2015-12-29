@@ -15,10 +15,10 @@ describe('Sensus Test', function() {
 			done();
 	});*/
 
-	
+
 	it('should return housing info', function(done) {
 
-		agent.get('/inflo/api/getHousingInfo?q=01003')
+		agent.get('/api/getHousingInfo?q=01003')
 			.end(function(req, res) {
 				// Call the assertion callback
 				var results = res.body;
@@ -28,11 +28,11 @@ describe('Sensus Test', function() {
 
 				done();
 			});
-	});	
+	});
 
 	it('should return population info', function(done) {
 
-		agent.get('/inflo/api/getPopulationInfo?q=01003')
+		agent.get('/api/getPopulationInfo?q=01003')
 			.end(function(req, res) {
 				// Call the assertion callback
 				var results = res.body;
@@ -40,7 +40,7 @@ describe('Sensus Test', function() {
 
 				done();
 			});
-	});		
+	});
 
 
 
