@@ -59,11 +59,17 @@
     <div class="container">
       <div class="row">
         <div class="col-md-5 text-right">
-          <h4>{{countyData.county_name}}</h4>
+          <h3>{{countyData.county_name}}</h3>
           <hr />
-          <h5>{{countyData.overall_result_perc  | number : 0}}%</h5>
+          <h3>
+            <div class="progress">
+              <div class="progress-bar pull-right" role="progressbar" aria-valuenow="{{countyData.overall_result_perc  | number : 0}}" aria-valuemin="100" aria-valuemax="0" style="width: {{countyData.overall_result_perc  | number : 0}}%;">
+                <div class="text-right">{{countyData.overall_result_perc  | number : 0}}%</div>
+              </div>
+            </div>
+          </h3>
           <p>&nbsp;</p>
-          <p>{{countyData.detail.socio.income | currency}}</p>
+          <p><strong><i class="fa fa-check text-success"></i> {{countyData.detail.socio.income | currency}}</strong></p>
           <p>{{countyData.detail.socio.unemployed | number : 2}}</p>
           <p>{{countyData.detail.socio.crimes | number : 2}}</p>
           <p>&nbsp;</p>
@@ -80,9 +86,9 @@
           <p>{{countyData.detail.water.arsenic | number : 2}}</p>
         </div>
         <div class="col-md-2 text-center">
-          <h4>&nbsp;</h4>
+          <h3>&nbsp;</h3>
           <hr />
-          <h5>&nbsp;</h5>
+          <h3>&nbsp;</h3>
           <p><strong>People</strong></p>
           <p>income</p>
           <p>unemployed</p>
@@ -101,7 +107,7 @@
           <p>arsenic</p>
         </div>
         <div class="col-md-5" ng-show="!queryCompareShow">
-          <h4>National Average</h4>
+          <h3>National Average</h3>
           <hr />
           <h5>&nbsp;</h5>
           <p>&nbsp;</p>
@@ -122,13 +128,19 @@
           <p>{{countyData.detail.water.arsenic_avg | number : 2}}</p>
         </div>
         <div class="col-md-5" ng-show="queryCompareShow">
-          <h4>{{countyDataCompare.county_name}}</h4>
+          <h3>{{countyDataCompare.county_name}}</h3>
           <hr />
-          <h5>&nbsp;</h5>
+          <h3>
+            <div class="progress">
+              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{countyDataCompare.overall_result_perc  | number : 0}}" aria-valuemin="0" aria-valuemax="100" style="width: {{countyDataCompare.overall_result_perc  | number : 0}}%;">
+                <div class="text-left"><strong>{{countyDataCompare.overall_result_perc  | number : 0}}%</strong></div>
+              </div>
+            </div>
+          </h3>
           <p>&nbsp;</p>
           <p>{{countyDataCompare.detail.socio.income | currency}}</p>
           <p>{{countyDataCompare.detail.socio.unemployed | number : 2}}</p>
-          <p>{{countyDataCompare.detail.socio.crimes | number : 2}}</p>
+          <p><strong>{{countyDataCompare.detail.socio.crimes | number : 2}} <i class="fa fa-check text-success"></i></strong></p>
           <p>&nbsp;</p>
           <p>{{countyDataCompare.detail.infra.highway | number : 2}}</p>
           <p>{{countyDataCompare.detail.infra.streets | number : 2}}</p>
