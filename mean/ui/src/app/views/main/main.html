@@ -8,7 +8,8 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" ui-sref="app.main">
-        <img src="/images/LiveSafe-logo.png" class="img-responsive" />
+        <i class="fa fa-home"></i> LiveSafe
+        <!--<img src="/images/LiveSafe-logo.png" class="img-responsive" />-->
       </a>
     </div>
   </div>
@@ -23,14 +24,14 @@
           <li role="presentation" ng-class="{'active' : comparing}"><a ng-click="comparing=true" aria-controls="compare" role="tab">Compare</a></li>
         </ul>
         <div class="panel">
-          <div class="panel-body">        
+          <div class="panel-body">
             <div class="tab-content">
               <div class="tab-pane" ng-class="{'active' : !comparing}">
                 <form>
                   <div class="input-group">
-                    <input ng-disabled="loginLoading" autofocus type="text" ng-model="query" county-spaces typeahead-min-length="2" typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" typeahead-on-select='onSelect($item, $model, $label)' class="form-control input-lg" placeholder="Search for Fairfax County, VA">
+                    <input ng-disabled="loginLoading" autofocus type="text" ng-model="query" county-spaces typeahead-min-length="2" typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" typeahead-on-select='onSelect($item, $model, $label)' class="form-control input-lg" placeholder="Fairfax County, VA">
                     <span class="input-group-btn">
-                      <button class="btn btn-success btn-lg" type="button" ng-click="search();"><i class="fa fa-search"></i><span class="sr-only">Search</span></button>
+                      <button class="btn btn-success btn-lg" type="button" ng-click="search();">Search</button>
                     </span>
                   </div>
                 </form>
@@ -64,7 +65,7 @@
           <h4 class="header-inverse">Top Counties: People</h4>
           <div class="table-responsive">
             <table class="table table-striped">
-              <tr>
+              <tr class="sr-only">
                 <th>Rank</th>
                 <th>County</th>
               </tr>
@@ -79,7 +80,7 @@
           <h4 class="header-inverse">Top Counties: Travel Safety</h4>
           <div class="table-responsive">
             <table class="table table-striped">
-              <tr>
+              <tr class="sr-only">
                 <th>Rank</th>
                 <th>County</th>
               </tr>
@@ -94,7 +95,7 @@
           <h4 class="header-inverse">Top Counties: Air Quality</h4>
           <div class="table-responsive">
             <table class="table table-striped">
-              <tr>
+              <tr class="sr-only">
                 <th>Rank</th>
                 <th>County</th>
               </tr>
@@ -109,7 +110,7 @@
           <h4 class="header-inverse">Top Counties: Water Quality</h4>
           <div class="table-responsive">
             <table class="table table-striped">
-              <tr>
+              <tr class="sr-only">
                 <th>Rank</th>
                 <th>County</th>
               </tr>
@@ -126,8 +127,8 @@
 </div>
 <hr />
 <footer class="footer">
-  <div class="container">
-    <p class="text-muted">Inflo</p>
+  <div class="container text-right">
+    <p class="text-muted"><i class="fa fa-home"></i> LiveSafe</p>
   </div>
 </footer>
 

@@ -13,6 +13,8 @@
 @icon-font-path: '../../bower_components/bootstrap/fonts/';
 @fa-font-path: '../../bower_components/font-awesome/fonts';
 
+body { color: #333333; }
+
 div[ui-view=content] {
   outline: none !important;
 }
@@ -25,11 +27,22 @@ a:hover, a:active, a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .b
 	outline:0;
 }
 
+.btn, .nav-tabs>li>a, .panel, .input-group .form-control:first-child, .input-group-addon:first-child, .input-group-btn:first-child>.btn, .input-group-btn:first-child>.btn-group>.btn, .input-group-btn:first-child>.dropdown-toggle, .input-group-btn:last-child>.btn:not(:last-child):not(.dropdown-toggle), .input-group-btn:last-child>.btn-group:not(:last-child)>.btn { border-radius: 0; }
+
 .navbar-inverse { background-color: transparent; border-color: #3498db; }
-.navbar-inverse .navbar-brand, .navbar-inverse .navbar-brand:hover { color: #fff; background-color: #349987; display: block; height: auto; }
+.navbar-inverse .navbar-brand, 
+.navbar-inverse .navbar-brand:hover, 
+.navbar-inverse .navbar-brand:focus {
+	color: #fff; background-color: #349987; display: block; height: auto; padding: 15px 15px;
+}
+
+.nav-tabs { border-bottom: 0; }
+.nav-tabs>li>a { color: #fff; }
+.nav-tabs>li>a:hover { color: #18bc9c; }
 
 .hero { background-color: #334c5b; padding: 140px 0 110px; margin: -120px 0 40px; }
 .no-bg { background-color: transparent; }
+.hero .form-control, .hero input { border: 0; }
 
 .header-inverse { background-color: #339999; color: #fff; padding: 10px; }
 
