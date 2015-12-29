@@ -24,7 +24,7 @@
           <div class="tab-pane" ng-class="{'active' : !comparing}">
             <form>
               <div class="input-group">
-                <input ng-disabled="loginLoading" autofocus type="text" ng-model="query" typeahead-min-length="2" typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" typeahead-on-select='onSelect($item, $model, $label)' class="form-control input-lg" placeholder="Search for Fairfax County, VA">
+                <input ng-disabled="loginLoading" autofocus type="text" ng-model="query" county-spaces typeahead-min-length="2" typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" typeahead-on-select='onSelect($item, $model, $label)' class="form-control input-lg" placeholder="Search for Fairfax County, VA">
                 <span class="input-group-btn">
                   <button class="btn btn-success btn-lg" type="button" ng-click="search();"><i class="fa fa-search"></i><span class="sr-only">Search</span></button>
                 </span>
@@ -35,11 +35,11 @@
             <form class="form-inline">
               <div class="form-group">
                 <label for="compare" class="sr-only">First compare county</label>
-                <input ng-disabled="loginLoading" autofocus type="text" ng-model="query" typeahead-min-length="2" typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" typeahead-on-select='onSelect($item, $model, $label)' class="form-control input-lg" placeholder="Fairfax County, VA">
+                <input ng-disabled="loginLoading" autofocus type="text" ng-model="query" county-spaces typeahead-min-length="2" typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" typeahead-on-select='onSelect($item, $model, $label)' class="form-control input-lg" placeholder="Fairfax County, VA">
               </div>
               <div class="form-group">
                 <label for="compare" class="sr-only">compare to county</label>
-                <input ng-disabled="loginLoading" autofocus type="text" ng-model="queryCompare" typeahead-min-length="2" typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" typeahead-on-select='onSelect($item, $model, $label)' class="form-control input-lg" placeholder="Alexandria City, VA">
+                <input ng-disabled="loginLoading" autofocus type="text" ng-model="queryCompare" county-spaces typeahead-min-length="2" typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" typeahead-on-select='onSelect($item, $model, $label)' class="form-control input-lg" placeholder="Alexandria City, VA">
               </div>
               <button class="btn btn-success btn-lg" type="button" ng-click="search();">Compare</button>
             </form>

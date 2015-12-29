@@ -7,7 +7,7 @@
 
   /** @ngInject */
 
-  function config($logProvider, RestangularProvider, $locationProvider, $urlRouterProvider) {
+  function config($logProvider, RestangularProvider, $locationProvider, $urlRouterProvider, cfpLoadingBarProvider) {
 
     // Enable log
     $logProvider.debugEnabled(true);
@@ -22,8 +22,10 @@
       RestangularProvider.setBaseUrl(location.protocol + '//' + location.hostname + (location.port && ':' + location.port) + location.pathname);
     }
     
-    
     $locationProvider.html5Mode(true);
+
+    cfpLoadingBarProvider.latencyThreshold = 30;
+    cfpLoadingBarProvider.includeSpinner = false;
 
   }
 
