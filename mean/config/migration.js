@@ -3,7 +3,7 @@ var MongoClient = require('mongodb').MongoClient;
 var Server = require('mongodb').Server;
 var assert = require('assert');
 var fs = require('fs');
-var config = require('./config/config')
+var config = require('./config')
 
 console.log("\n Starting");
 var jsonData;
