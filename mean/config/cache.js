@@ -119,5 +119,6 @@ var fnAggregates = function(app)  {
 };
 
 module.exports = function(app) {
-	 migrate(app, fnAggregates);
+	// migrate(app, fnAggregates);
+	 fnAggregates(app);
 };
