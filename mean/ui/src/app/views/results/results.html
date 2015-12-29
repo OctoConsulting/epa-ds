@@ -9,20 +9,21 @@
       </button>
       <a class="navbar-brand" ui-sref="app.main">
         <i class="fa fa-home"></i> LiveSafe
-        <!--<img src="/images/LiveSafe-logo.png" class="img-responsive" />-->
       </a>
     </div>
   </div>
 </nav>
 
-    <div class="hero" ng-class="{'hero-lg': fullSearchBar}">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 col-md-offset-2">
-            <ul class="nav nav-pills" role="tablist">
-              <li role="presentation" ng-class="{'active' : !comparing}"><a ng-click="comparing=false" aria-controls="search" role="tab">Search</a></li>
-              <li role="presentation" ng-class="{'active' : comparing}"><a ng-click="comparing=true" aria-controls="compare" role="tab">Compare</a></li>
-            </ul>
+<div class="hero" ng-class="{'hero-lg': fullSearchBar}">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" ng-class="{'active' : !comparing}"><a ng-click="comparing=false" aria-controls="search" role="tab">Search</a></li>
+          <li role="presentation" ng-class="{'active' : comparing}"><a ng-click="comparing=true" aria-controls="compare" role="tab">Compare</a></li>
+        </ul>
+        <div class="panel">
+          <div class="panel-body">
             <div class="tab-content">
               <div class="tab-pane" ng-class="{'active' : !comparing}">
                 <form>
@@ -52,6 +53,8 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
 
     <div class="container">
       <div class="row">
@@ -354,6 +357,7 @@
       <div class="row"><div class="col-lg-12">&nbsp;</div></div>
     </div>
 
+<hr />
 <footer class="footer">
   <div class="container text-right">
     <p class="text-muted"><i class="fa fa-home"></i> LiveSafe</p>
