@@ -1,0 +1,30 @@
+database:
+    image: mongo:latest
+    hostname: epa-ds-database
+    container_name: epa-ds-database
+    stdin_open: true
+    tty: true
+        
+    volumes:
+     - /data/db:/data/db
+
+    ports:
+     - "27017:27017"  
+      
+web:
+    image: octoconsulting/epa-ds-webapp:latest
+    hostname: epa-ds-webapp
+    container_name: epa-ds-webapp
+    stdin_open: true
+    tty: true
+    
+    links:
+     - database:db
+
+    ports:
+     - "80:3000"
+
+    environment:
+     - NODE_ENV=production
+     - DB_1_PORT_27017_TCP_ADDR=db
+ 

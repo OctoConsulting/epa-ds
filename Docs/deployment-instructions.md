@@ -4,8 +4,8 @@
 
 LiveSafe is deployed using [Docker](http://docker.com). In order to deploy the LiveSafe application in your own Docker environment, you can run the following commands to get started (you will need the latest versions of [Docker](https://docs.docker.com/engine/installation/) and [Docker Compose](https://docs.docker.com/compose/) installed):
 
-	$ git clone https://github.com/OctoConsulting/setup-livesafe
-	$ cd setup-livesafe
+	$ git clone https://github.com/OctoConsulting/epa-ds
+	$ cd epa-ds/docker_compose
 	$ docker-compose -f docker-compose.yml up -d
 	
 This will start the container listening on port 80, you can specify a different port by changing docker-compose.yml file. Also, this port will have to be open and accessible on your server.
