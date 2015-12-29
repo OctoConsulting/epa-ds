@@ -13,7 +13,8 @@
       'ngAria',
       'chart.js',
       'angular.filter',
-      'stpa.morris'
+      'stpa.morris',
+      'angular-loading-bar'
     ]);
 
 })();

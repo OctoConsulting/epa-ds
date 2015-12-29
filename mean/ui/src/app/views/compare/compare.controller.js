@@ -6,6 +6,7 @@
       	$scope.queryCompareShow = $stateParams.queryCompare;
       	$scope.query = $stateParams.query;
       	$scope.queryCompare = $stateParams.queryCompare;
+        $scope.comparing = true;
 
         $scope.countyData = countyData;
         $scope.countyDataCompare = countyDataCompare;
@@ -37,7 +38,7 @@
 
 
 		    $scope.search = function () {
-		    	if($scope.queryCompare.length) {
+		    	if($scope.queryCompare && $scope.queryCompare.length) {
 						$state.transitionTo('app.compare', {'query':$scope.query,'queryCompare':$scope.queryCompare}, {'reload':true});
 		    	}
 		    	else {

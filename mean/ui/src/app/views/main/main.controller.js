@@ -41,7 +41,7 @@
 
       $scope.getLocation = function(val) {
           $scope.hasError = 0;
-          return Restangular.one('api').customGET('autoComplete',{'q':val})
+          return Restangular.one('api').withHttpConfig({ignoreLoadingBar: true}).customGET('autoComplete',{'q':val})
           .then(function(result) {
               result.results = $filter('unique')(result.results);
               return result.results.map(function(item){
