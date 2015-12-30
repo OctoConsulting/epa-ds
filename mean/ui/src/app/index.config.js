@@ -23,9 +23,6 @@
       RestangularProvider.setBaseUrl(location.protocol + '//' + location.hostname + (location.port && ':' + location.port) + location.pathname);
     }
     
-    /* Configure the application to not use a # symbol for storing routes */
-    $locationProvider.html5Mode(true);
-
     /* Configure some default settings for the loading bar */
     cfpLoadingBarProvider.latencyThreshold = 30;
     cfpLoadingBarProvider.includeSpinner = false;
