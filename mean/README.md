@@ -19,11 +19,11 @@ $ npm install -g grunt-cli
 ```
 
 ### Clone The GitHub Repository
-You can use Git to directly clone the INFLO repository from githubb:
+You can use Git to directly clone the application repository from githubb:
 ```bash
 $ git clone https://github.com/OctoConsulting/epa-ds.git
 ```
-This will clone the latest version of the INFLO repository to a **epa-ds** folder.
+This will clone the latest version of the application repository to a **epa-ds** folder.
 
 ## Quick Install
 Once you've cloned the repository and installed all the prerequisites, go to octo-mock2/mean directory and install Node.js dependencies using npm:
