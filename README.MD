@@ -6,7 +6,7 @@ LIVESAFE
 ========
 
 <p align="center">
-  <img src="https://github.com/OctoConsulting/epa-ds/blob/master/Docs/UI/Graphic%20Resources/LiveSafe-logo.png">
+  <img src="https://github.com/OctoConsulting/epa-ds/blob/master/Docs/livesafe-logo-tagline.jpg">
 </p>
 
 Prototype URL:
