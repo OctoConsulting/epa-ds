@@ -4,6 +4,8 @@
     .module('octoLabs')
     .config(routeConfig);
 
+  /*  Home page route and data resolvers */
+
   /** @ngInject */
   function routeConfig($stateProvider) {
     $stateProvider.state({

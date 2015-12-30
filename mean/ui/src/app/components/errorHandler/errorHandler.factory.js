@@ -3,7 +3,7 @@
   angular.module('octoLabs')
     .factory('errorHandler', /** @ngInject */ function (toastr) {
       // Service logic
-      // ...
+      // Factory to intercept and handle common http error codes and display an error to the screen.
 
       function getErrorMessage (code) {
         var errorMessage = {};

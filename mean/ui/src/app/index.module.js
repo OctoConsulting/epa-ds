@@ -1,5 +1,7 @@
 (function() {
 
+  /* Include the modules needed to power our application */
+
   angular
     .module('octoLabs', [
       'ngAnimate',

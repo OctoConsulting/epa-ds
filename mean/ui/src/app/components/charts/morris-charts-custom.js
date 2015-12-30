@@ -24,8 +24,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+
+
+
 (function(){
     'use strict';
+
+    /* Customized morris chart library for Octo usage */
 
     var module = angular.module("stpa.morris", []);
     module.directive('barChart', barChart);
