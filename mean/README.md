@@ -21,9 +21,9 @@ $ npm install -g grunt-cli
 ### Clone The GitHub Repository
 You can use Git to directly clone the INFLO repository from githubb:
 ```bash
-$ git clone https://github.com/Octo-Hackathon/octo-mock2.git
+$ git clone https://github.com/OctoConsulting/epa-ds.git
 ```
-This will clone the latest version of the INFLO repository to a **octo-mock2** folder. 
+This will clone the latest version of the INFLO repository to a **epa-ds** folder.
 
 ## Quick Install
 Once you've cloned the repository and installed all the prerequisites, go to octo-mock2/mean directory and install Node.js dependencies using npm:
@@ -41,7 +41,7 @@ $ grunt
 
 Your application should run on port 3000, so in your browser just go to [http://localhost:3000](http://localhost:3000)
 
-That's it! Your application should be running. 
+That's it! Your application should be running.
 
 ## Testing Your Application
 To execute only the server tests, run the test:server task:
