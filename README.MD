@@ -1,6 +1,6 @@
-# Environment Protection Agency #
+# EPA Environmental Digital Services Solicitation # SOL-DC-16-00010 #
 ## Octo Consulting Group ##
-## Response to EPA/OEI Digital Services ##
+## Response to Solicitation # SOL-DC-16-00010 ##
 
 LIVESAFE
 ========
