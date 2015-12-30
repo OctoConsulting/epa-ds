@@ -112,7 +112,7 @@
           <h3>
             <div class="progress">
               <div ng-class="{'progress-bar-success' : countyData.overall_result_perc < countyDataCompare.overall_result_perc}" class="progress-bar" role="progressbar" aria-valuenow="{{countyDataCompare.overall_result_perc  | number : 0}}" aria-valuemin="0" aria-valuemax="100" style="width: {{countyDataCompare.overall_result_perc  | number : 0}}%;">
-                <div class="text-left"><strong>{{countyDataCompare.overall_result_perc  | number : 0}}% <i class="fa fa-check"></i></strong></div>
+                <div class="text-left"><strong><i class="fa fa-check"></i> {{countyDataCompare.overall_result_perc  | number : 0}}%</strong></div>
               </div>
             </div>
           </h3>
