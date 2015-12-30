@@ -68,7 +68,7 @@
                 <th>Rank</th>
                 <th>County</th>
               </tr>
-              <tr ng-repeat="row in topFives.socio">
+              <tr ng-repeat="row in topFives.socio" ng-class="{'top-five-winner' : $index===0}">
                 <td>{{$index+1}}</td>
                 <td><a ng-click="showCounty(row)">{{row.countyDescription}}, {{row.stateCode}}</a></td>
               </tr>             
@@ -83,7 +83,7 @@
                 <th>Rank</th>
                 <th>County</th>
               </tr>
-              <tr ng-repeat="row in topFives.built">
+              <tr ng-repeat="row in topFives.built" ng-class="{'top-five-winner' : $index===0}">
                 <td>{{$index+1}}</td>
                 <td><a ng-click="showCounty(row)">{{row.countyDescription}}, {{row.stateCode}}</a></td>
               </tr>               
@@ -98,7 +98,7 @@
                 <th>Rank</th>
                 <th>County</th>
               </tr>
-              <tr ng-repeat="row in topFives.air">
+              <tr ng-repeat="row in topFives.air" ng-class="{'top-five-winner' : $index===0}">
                 <td>{{$index+1}}</td>
                 <td><a ng-click="showCounty(row)">{{row.countyDescription}}, {{row.stateCode}}</a></td>
               </tr>              
@@ -113,7 +113,7 @@
                 <th>Rank</th>
                 <th>County</th>
               </tr>
-              <tr ng-repeat="row in topFives.water">
+              <tr ng-repeat="row in topFives.water" ng-class="{'top-five-winner' : $index===0}">
                 <td>{{$index+1}}</td>
                 <td><a ng-click="showCounty(row)">{{row.countyDescription}}, {{row.stateCode}}</a></td>
               </tr>              
