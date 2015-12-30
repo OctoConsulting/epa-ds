@@ -1,4 +1,4 @@
-# EPA Environmental Digital Services Solicitation # SOL-DC-16-00010 #
+# EPA Environmental Digital Services Solicitation #
 ## Octo Consulting Group ##
 ## Response to Solicitation # SOL-DC-16-00010 ##
 
