@@ -1,7 +1,7 @@
 (function() {
 
   angular.module('octoLabs')
-      .controller('ResultsController', /** @ngInject */ function ($scope, Restangular, $state, $filter, $stateParams, countyData, populationData, housingData) {
+      .controller('ResultsController', /** @ngInject */ function ($scope, Restangular, $state, $filter, $stateParams, toastr, countyData, populationData, housingData) {
             $scope.queryShow = $stateParams.query;
             $scope.query = $stateParams.query;
             $scope.countyData = countyData;
@@ -32,14 +32,26 @@
 
 
 
-
             $scope.search = function () {
-              if($scope.queryCompare && $scope.queryCompare.length) {
+              if($scope.comparing) {
+                if(!$scope.query || !$scope.queryCompare) {
+                  toastr.error("Please select two counties to compare.");
+                  return false;
+                }
+                else {
                   $state.transitionTo('app.compare', {'query':$scope.query,'queryCompare':$scope.queryCompare}, {'reload':true});
+                }
               }
               else {
-                  $state.transitionTo('app.compare', {'query':$scope.query}, {'reload':true});
-              }             
+                if(!$scope.query) {
+                  toastr.error("Please select a county to search for.");
+                  return false;
+                }
+                else {
+                  $state.transitionTo('app.results', {'query':$scope.query}, {'reload':true});
+                }
+
+              }       
             };
 
             $scope.getLocation = function(val) {
