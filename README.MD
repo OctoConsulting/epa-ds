@@ -41,6 +41,9 @@ Once the build is complete you can access the application on the port you specif
 For example, if the prototype is deployed on port 80, you can access the prototype using the following URL:
 http://<IP address of the VM>:80/
 
+### Future Enhancement ###
+**ToDo:** Integration of docker image building within CI/CD pipeline
+
 # Developing LIVESAFE #
 
 ## Consuming & Remixing Data ##
