@@ -9,6 +9,33 @@ About LIVESAFE
 
 **LIVESAFE** is a contextual and  situational awareness dashboard build on top of data sets from EPA and the US Census Bureau.  **LIVESAFE** allows the current/prospective residents or business owners who want socioeconomic and environmental information on counties to search **LIVESAFE** by county name and it returns situational data such as median income, % unemployed, travel safety, air quality, water quality, and demographical information such as gender, race and housing.  Additionally, **LIVESAFE** provides users the ability to compare data between two different counties or just view the data graphically for one county. Currently **LIVESAFE** focuses on two different aspects of visualizations: basic bar charts to display historical EPA data and near real-time charts for displaying the more frequently updated US Census Bureau data.
 
+Deployment Instructions
+=======================
+
+**LIVESAFE** is deployed using [Docker](http://docker.com). In order to deploy the **LIVESAFE** application in your own Docker environment, you can run the following commands to get started (you will need the latest versions of [Docker](https://docs.docker.com/engine/installation/) and [Docker Compose](https://docs.docker.com/compose/) installed):
+
+	$ git clone https://github.com/OctoConsulting/epa-ds
+	$ cd epa-ds/docker_compose
+	$ docker-compose -f docker-compose.yml up -d
+	
+This will start the container listening on port 80, you can specify a different port by changing docker-compose.yml file. Also, this port will have to be open and accessible on your server.
+
+## Get the container ID of the image octoconsulting/epa-ds-webapp with docker ps ##
+	# docker ps
+	CONTAINER ID          IMAGE                      	   ...
+	[container_id]        octoconsulting/epa-ds-webapp     ...
+	[container_id]        octoconsulting/epa-ds-database   ...
+
+## Tell the container to fetch and build the application ##
+	docker exec [container_id] /usr/local/bin/buildWebApp.sh
+
+## ... That's it! ##
+Once the build is complete you can access the application on the port you specified above.
+
+For example, if the prototype is deployed on port 80, you can access the prototype using the following URL:
+
+	http://<IP address of the VM>:80/
+
 Developing LIVESAFE
 ===================
 
@@ -23,27 +50,3 @@ Testing | Mocha, Karma, Protractor |
 DevOps | Jenkins, Grunt |
 
 
-Development Environment
------------------------
-
-1.  Docker - used to quickly spin up a development environment.
-2.  MEAN Stack - used to query MongoDB, develop services and display visualizations.
-
-Backend
--------
-1.  MongoDB
-
-Application Server
-------------------
-1.  NodeJS - for MEAN
-
-Testing
--------
-1.  Mocha - unit testing for services
-2.  Karma - unit testing for front end
-3.  Protractor - end to end testing for MEAN
-
-DevOps
-------
-1.  Jenkins - Continuous Integration
-2.  Grunt - Continous Deployment
