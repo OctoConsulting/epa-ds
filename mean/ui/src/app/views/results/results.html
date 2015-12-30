@@ -1,15 +1,10 @@
 <nav class="navbar navbar-default navbar-inverse">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
       <a class="navbar-brand" ui-sref="app.main">
         <i class="fa fa-home"></i> LiveSafe
       </a>
+      <p class="navbar-text"><strong><em>Move Smarter.</em></strong></p>
     </div>
   </div>
 </nav>
@@ -67,24 +62,25 @@
                     <h2>
                       <div class="progress">
                         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{countyData.overall_result_perc  | number : 0}}" aria-valuemin="0" aria-valuemax="100" style="width: {{countyData.overall_result_perc  | number : 0}}%;">
-                          <div class="text-left"><strong>Percentile: {{countyData.overall_result_perc  | number : 0}}%</strong></div>
+                          <div class="text-left">Percentile: <strong>{{countyData.overall_result_perc  | number : 0}}</strong> <i class="fa fa-question-circle" uib-popover="This represents how each county compares in relation to every other county in the United States." popover-title="County percentile"></i></div>
                         </div>
                       </div>
                     </h2>
-                  </div>
-                  <div class="col-sm-12">
-                    <hr />
+                    <p class="small text-muted"></p>
                   </div>
               </div>
           </div>
-
+          <div class="col-sm-12">
+            <h4 class="header-inverse">EPA Information</h4>
+          </div>
           <div class="col-sm-6 col-md-3">
-              <div class="panel panel-default">
+              <div class="panel panel-primary">
                   <div class="panel-heading">
-                      <h3>Socioeconomic</h3>
+                      <h4>Socioeconomic</h4>
                   </div>
                   <div class="panel-body">
-                      <span class="score">Score: {{countyData.detail.socio.overall_perc | number : 0}} <span class="text-muted small">({{countyData.detail.socio.overall_rate}})</span></span>
+                      <span class="score"><strong>Score: {{countyData.detail.socio.overall_perc | number : 0}} </strong><span class="text-muted small">({{countyData.detail.socio.overall_rate}})</span></span>
+                      <hr />
                       <ul class="list-unstyled">
                           <li>
                               <h6>Median Income : {{countyData.detail.socio.income | currency}} </h6>
@@ -105,7 +101,7 @@
                               <p class="small text-muted">Percentile of all counties.</p>
                           </li>
                           <li>
-                              <h6>Violent Crimes : {{countyData.detail.socio.crimes | number : 2}}  violent crime count</h6>
+                              <h6>Violent Crimes : {{countyData.detail.socio.crimes | number : 2}} crime count</h6>
                               <div class="progress">
                                 <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="{{countyData.detail.socio.crimes_perc}}" aria-valuemin="0" aria-valuemax="100" style="width: {{countyData.detail.socio.crimes_perc}}%">
                                   <span class="sr-only">{{countyData.detail.socio.crimes_perc}}% </span>
@@ -115,18 +111,16 @@
                           </li>
                       </ul>
                   </div>
-                  <div class="panel-footer">
-                      <p class="text-muted small">Data from EPA.gov</p>
-                  </div>
               </div>
           </div>
           <div class="col-sm-6 col-md-3">
-              <div class="panel panel-default">
+              <div class="panel panel-primary">
                   <div class="panel-heading">
-                      <h3>TRAVEL SAFETY</h3>
+                      <h4>Travel Safety</h4>
                   </div>
                   <div class="panel-body">
-                      <span class="score">Score: {{countyData.detail.infra.overall_perc | number : 0}} <span class="text-muted small">({{countyData.detail.infra.overall_rate}})</span></span>
+                      <span class="score"><strong>Score: {{countyData.detail.infra.overall_perc | number : 0}}</strong> <span class="text-muted small">({{countyData.detail.infra.overall_rate}})</span></span>
+                      <hr />
                       <ul class="list-unstyled">
                           <li>
                               <h6>Proportion of Highway : {{countyData.detail.infra.highway | number : 3}} miles</h6>
@@ -147,7 +141,7 @@
                               <p class="small text-muted">Percentile of all counties.</p>
                           </li>
                           <li>
-                              <h6>Traffic Fatality : {{countyData.detail.infra.fatalities | number : 2}} county fatality count</h6>
+                              <h6>Traffic Fatality : {{countyData.detail.infra.fatalities | number : 2}} fatality count</h6>
                               <div class="progress">
                                 <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="{{countyData.detail.infra.fatalities_perc}}" aria-valuemin="0" aria-valuemax="100" style="width: {{countyData.detail.infra.fatalities_perc}}%">
                                   <span class="sr-only">{{countyData.detail.infra.fatalities_perc}}%</span>
@@ -157,18 +151,16 @@
                           </li>
                       </ul>
                   </div>
-                  <div class="panel-footer">
-                      <p class="text-muted small">Data from EPA.gov</p>
-                  </div>
               </div>
           </div>
           <div class="col-sm-6 col-md-3">
-              <div class="panel panel-default">
+              <div class="panel panel-primary">
                   <div class="panel-heading">
-                      <h3>AIR QUALITY</h3>
+                      <h4>Air Quality</h4>
                   </div>
                   <div class="panel-body">
-                      <span class="score">Score: {{countyData.detail.air.overall_perc | number : 0}} <span class="text-muted small">({{countyData.detail.air.overall_rate}})</span></span>
+                      <span class="score"><strong>Score: {{countyData.detail.air.overall_perc | number : 0}}</strong> <span class="text-muted small">({{countyData.detail.air.overall_rate}})</span></span>
+                      <hr />
                       <ul class="list-unstyled">
                           <li>
                               <h6>Nitro Dioxide : {{countyData.detail.air.nitro}} ppb</h6>
@@ -199,18 +191,16 @@
                           </li>
                       </ul>
                   </div>
-                  <div class="panel-footer">
-                      <p class="text-muted small">Data from EPA.gov</p>
-                  </div>
               </div>
           </div>
           <div class="col-sm-6 col-md-3">
-              <div class="panel panel-default">
+              <div class="panel panel-primary">
                   <div class="panel-heading">
-                      <h3>WATER QUALITY</h3>
+                      <h4>Water Quality</h4>
                   </div>
                   <div class="panel-body">
-                      <span class="score">Score: {{countyData.detail.water.overall_perc | number : 0}} <span class="text-muted small">({{countyData.detail.water.overall_rate}})</span></span>
+                      <span class="score"><strong>Score: {{countyData.detail.water.overall_perc | number : 0}}</strong> <span class="text-muted small">({{countyData.detail.water.overall_rate}})</span></span>
+                      <hr />
                       <ul class="list-unstyled">
                           <li>
                               <h6>% of County drought : {{countyData.detail.water.drought | number : 2}}%</h6>
@@ -241,127 +231,106 @@
                           </li>
                       </ul>
                   </div>
-                  <div class="panel-footer">
-                      <p class="text-muted small">Data from EPA.gov</p>
-                  </div>
               </div>
+          </div>
+          <div class="col-sm-12">
+            <div class="text-muted"><p>All information in the above categories provided by epa.gov</p></div>
           </div>
       </div>
       <div class="row">
-          <div class="col-sm-6 col-md-3">
-              <div class="panel panel-default">
+          <div class="col-sm-12">
+            <h4 class="header-inverse">Census Information</h4>
+          </div>
+          <div class="col-sm-12 col-md-6">
+              <div class="panel panel-primary pminheight">
                   <div class="panel-heading">
-                      <h3>GENDER </h3>
+                      <h4>Gender</h4>
                   </div>
                   <div class="panel-body">
                       <div class="chart-height donut-chart" donut-chart donut-data='gender.data'></div>         
                       <div class="row">
                           <div class="col-lg-6 col-md-12 col-xs-6">
-                              <p class="small text-muted text-left">
+                              <p class="text-center">
                                   <span class="chart-legend-custom"></span>Male : {{populationData.sex.male.number | number : 0 }}
                               </p>
                           </div>
                           <div class="col-lg-6 col-md-12 col-xs-6">
-                              <p class="small text-muted text-left">
+                              <p class="text-center">
                                   <span class="chart-legend-custom"></span> Female : {{populationData.sex.female.number | number : 0 }}
                               </p>
                           </div>
                       </div>                  
                   </div>
-                  <div class="panel-footer">
-                      <p class="text-muted small">Data from census.gov</p>
-                  </div>
               </div>
           </div>
-          <div class="col-sm-6 col-md-3">
-              <div class="panel panel-default">
+          <div class="col-sm-12 col-md-6">
+              <div class="panel panel-primary pminheight">
                   <div class="panel-heading">
-                      <h3>RACE </h3>
+                      <h4>Race</h4>
                   </div>
                   <div class="panel-body">
                       <div class="chart-height race-chart">
                           <div ng-repeat="item in race.data track by $index">
-                              <p class="small text-muted">{{item.key}} : {{item.number | number : 0 }}</p>
+                              <h6>{{item.key}} : {{item.number | number : 0 }}</h6>
                               <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="{{item.percent}}" aria-valuemin="0" aria-valuemax="100" style="width: {{item.percent}}%">
+                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{item.percent}}" aria-valuemin="0" aria-valuemax="100" style="width: {{item.percent}}%">
                                   <span class="sr-only">{{item.percent}}%</span>
                                 </div>
                               </div>
                           </div>
                       </div> 
-                      <div class="row">
-                          <div class="col-lg-6 col-md-12 col-xs-6">
-                              <p class="small text-muted text-left">
-                                  &nbsp;
-                              </p>
-                          </div>
-                          <div class="col-lg-6 col-md-12 col-xs-6">
-                              <p class="small text-muted text-left">
-                                  &nbsp;
-                              </p>
-                          </div>
-                      </div>        
-                  </div>
-                  <div class="panel-footer">
-                      <p class="text-muted small">Data from census.gov</p>
                   </div>
               </div>
           </div>
-          <div class="col-sm-6 col-md-3">
-              <div class="panel panel-default">
+          <div class="col-sm-12 col-md-6">
+              <div class="panel panel-primary pminheight">
                   <div class="panel-heading">
-                      <h3>OWNERSHIP </h3>
+                      <h4>Ownership</h4>
                   </div>
                   <div class="panel-body">
-                      <div class="chart-height" stacked-bar-chart bar-data='owner.data' bar-x='y' bar-y='["a", "b"]' bar-labels='["Serie A", "Serie B"]'></div>
+                      <div class="chart-height" bar-chart bar-data='owner.data' bar-x='y' bar-y='["a", "b"]' bar-labels='["Serie A", "Serie B"]'></div>
                       <div class="row">
                           <div class="col-lg-6 col-md-12 col-xs-6">
-                              <p class="small text-muted text-left">
+                              <p class="text-center">
                                   <span class="chart-legend-custom"></span> Own : {{housingData.ownerOccupancy.number | number : 0 }}
                               </p>
                           </div>
                           <div class="col-lg-6 col-md-12 col-xs-6">
-                              <p class="small text-muted text-left">
+                              <p class="text-center">
                                   <span class="chart-legend-custom"></span>Rent : {{housingData.rentalOccupancy.number | number : 0 }}
                               </p>
                           </div>
                       </div>              
                   </div>
-                  <div class="panel-footer">
-                      <p class="text-muted small">Data from census.gov</p>
-                  </div>
               </div>
           </div>
-          <div class="col-sm-6 col-md-3">
-              <div class="panel panel-default">
+          <div class="col-sm-12 col-md-6">
+              <div class="panel panel-primary pminheight">
                   <div class="panel-heading">
-                      <h3>HOUSING </h3>
+                      <h4>Housing</h4>
                   </div>
                   <div class="panel-body">
                       <div class="chart-height" bar-chart bar-data='occupied.data' bar-x='y' bar-y='["a", "b"]' bar-labels='["Serie A", "Serie B"]'></div>
                       <div class="row">
                           <div class="col-lg-6 col-md-12 col-xs-6">
-                              <p class="small text-muted text-left">
+                              <p class="text-center">
                                   <span class="chart-legend-custom"></span> Vacant : {{housingData.vacancy.number | number : 0 }}
                               </p>
                           </div>
                           <div class="col-lg-6 col-md-12 col-xs-6">
-                              <p class="small text-muted text-left">
+                              <p class="text-center">
                                   <span class="chart-legend-custom"></span>Occupied : {{housingData.occupancy.number | number : 0 }}
                               </p>
                           </div>
                       </div>
                   </div>
-                  <div class="panel-footer">
-                      <p class="text-muted small">Data from census.gov</p>
-                  </div>
               </div>
           </div>
-
+          <div class="col-sm-12">
+            <div class="text-muted"><p>All information in the above categories provided by census.gov</p></div>
+          </div>
       </div>
-      <div class="row"><div class="col-lg-12">&nbsp;</div></div>
     </div>
-
 <hr />
 <footer class="footer">
   <div class="container text-right">

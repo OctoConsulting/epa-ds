@@ -53,7 +53,7 @@
                                 element: elem,
                                 data: scope.donutData,
                                 resize: true,
-                                colors: ['#FFC363','#FF9800']
+                                colors: ['#339999','#336666']
                             };
                             scope.donutInstance = new Morris.Donut(options);
                         } else {
@@ -86,7 +86,7 @@
                                 axes: false,
                                 grid: false,
                                 resize: true,
-                                barColors: ['#FF9800','#FFC363'],
+                                barColors: ['#336666','#339999'],
                                 ykeys: JSON.parse(scope.barY),
                                 labels: JSON.parse(scope.barLabels),
                                 xLabelMargin: 2
