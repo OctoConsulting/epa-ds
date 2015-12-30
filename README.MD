@@ -48,6 +48,12 @@ For example, if the prototype is deployed on port 80, you can access the prototy
 
 # Developing LIVESAFE #
 
+## Our Approach ##
+The following diagram outlines our approach for responding to the solicitation and for the continuous delivery of MedCheck.
+
+![Image of LIVESAFE](https://github.com/OctoConsulting/epa-ds/blob/master/Docs/UI/Graphic%20Resources/approach.png?raw=true)
+
+## Technology Stack and Tools #
 We designed **LIVESAFE** with the goal of using only open source technologies.  As such we leveraged technologies such as the MEAN stack for development and MongoDB for backend processing.  A full list of the technologies used can be found below:
 
 Tier | Tools |
@@ -57,3 +63,5 @@ Database | MongoDB |
 Application Server | NodeJS |
 Testing | Mocha, Karma, Protractor |
 DevOps | Jenkins, Grunt |
+
+![Image of Technologies](https://github.com/OctoConsulting/epa-ds/blob/master/Docs/UI/Graphic%20Resources/techstack.png?raw=true)
