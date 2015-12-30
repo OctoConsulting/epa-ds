@@ -40,7 +40,7 @@
                     <label for="compare" class="sr-only">compare to county</label>
                     <input ng-disabled="loginLoading" autofocus type="text" ng-model="queryCompare" county-spaces typeahead-min-length="2" typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" typeahead-on-select='onSelect($item, $model, $label)' class="form-control input-lg" placeholder="Alexandria City, VA">
                   </div>
-                  <button class="btn btn-success btn-lg" type="button" ng-click="search();">Compare</button>
+                  <button class="btn btn-success btn-lg pull-right" type="button" ng-click="search();">Compare</button>
                 </form>
               </div>
             </div>
