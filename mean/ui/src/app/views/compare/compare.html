@@ -56,10 +56,10 @@
   </div>
 </div>
 
-    <div class="container">
+    <div class="container comparison">
       <div class="row">
         <div class="col-md-5 text-right">
-          <h3>{{countyData.county_name}}</h3>
+          <h3><a ng-click="showCounty(countyData)">{{countyData.county_name}}</a></h3>
           <hr />
           <h3>
             <div class="progress">
@@ -69,21 +69,21 @@
             </div>
           </h3>
           <p>&nbsp;</p>
-          <p><strong><i class="fa fa-check text-success"></i> {{countyData.detail.socio.income | currency}}</strong></p>
-          <p>{{countyData.detail.socio.unemployed | number : 2}}</p>
-          <p>{{countyData.detail.socio.crimes | number : 2}}</p>
+          <p ng-class="{'winner' : countyData.detail.socio.income > countyDataCompare.detail.socio.income}"><i class="fa fa-check text-success"></i> {{countyData.detail.socio.income | currency}}</p>
+          <p ng-class="{'winner' : countyData.detail.socio.unemployed < countyDataCompare.detail.socio.unemployed}"><i class="fa fa-check text-success"></i> {{countyData.detail.socio.unemployed | number : 2}}</p>
+          <p ng-class="{'winner' : countyData.detail.socio.crimes < countyDataCompare.detail.socio.crimes}"><i class="fa fa-check text-success"></i> {{countyData.detail.socio.crimes | number : 2}}</p>
           <p>&nbsp;</p>
-          <p>{{countyData.detail.infra.highway | number : 2}}</p>
-          <p>{{countyData.detail.infra.streets | number : 2}}</p>
-          <p>{{countyData.detail.infra.fatalities | number : 2}}</p>
+          <p ng-class="{'winner' : countyData.detail.infra.highway > countyDataCompare.detail.infra.highway}"><i class="fa fa-check text-success"></i> {{countyData.detail.infra.highway | number : 2}}</p>
+          <p ng-class="{'winner' : countyData.detail.infra.streets > countyDataCompare.detail.infra.streets}"><i class="fa fa-check text-success"></i> {{countyData.detail.infra.streets | number : 2}}</p>
+          <p ng-class="{'winner' : countyData.detail.infra.fatalities < countyDataCompare.detail.infra.fatalities}"><i class="fa fa-check text-success"></i> {{countyData.detail.infra.fatalities | number : 2}}</p>
           <p>&nbsp;</p>
-          <p>{{countyData.detail.air.nitro | number : 2}}</p>
-          <p>{{countyData.detail.air.sulfur | number : 2}}</p>
-          <p>{{countyData.detail.air.carbon | number : 2}}</p>
+          <p ng-class="{'winner' : countyData.detail.air.nitro < countyDataCompare.detail.air.nitro}"><i class="fa fa-check text-success"></i> {{countyData.detail.air.nitro | number : 2}}</p>
+          <p ng-class="{'winner' : countyData.detail.air.sulfur < countyDataCompare.detail.air.sulfur}"><i class="fa fa-check text-success"></i> {{countyData.detail.air.sulfur | number : 2}}</p>
+          <p ng-class="{'winner' : countyData.detail.air.carbon < countyDataCompare.detail.air.carbon}"><i class="fa fa-check text-success"></i> {{countyData.detail.air.carbon | number : 2}}</p>
           <p>&nbsp;</p>
-          <p>{{countyData.detail.water.drought | number : 2}}</p>
-          <p>{{countyData.detail.water.mercury | number : 2}}</p>
-          <p>{{countyData.detail.water.arsenic | number : 2}}</p>
+          <p ng-class="{'winner' : countyData.detail.water.drought < countyDataCompare.detail.water.drought}"><i class="fa fa-check text-success"></i> {{countyData.detail.water.drought | number : 2}}</p>
+          <p ng-class="{'winner' : countyData.detail.water.mercury < countyDataCompare.detail.water.mercury}"><i class="fa fa-check text-success"></i> {{countyData.detail.water.mercury | number : 2}}</p>
+          <p ng-class="{'winner' : countyData.detail.water.arsenic < countyDataCompare.detail.water.arsenic}"><i class="fa fa-check text-success"></i> {{countyData.detail.water.arsenic | number : 2}}</p>
         </div>
         <div class="col-md-2 text-center">
           <h3>&nbsp;</h3>
@@ -106,29 +106,8 @@
           <p>mercury</p>
           <p>arsenic</p>
         </div>
-        <div class="col-md-5" ng-show="!queryCompareShow">
-          <h3>National Average</h3>
-          <hr />
-          <h5>&nbsp;</h5>
-          <p>&nbsp;</p>
-          <p>{{countyData.detail.socio.income_avg | currency}}</p>
-          <p>{{countyData.detail.socio.unemployed_avg | number : 2}}</p>
-          <p>{{countyData.detail.socio.crimes_avg | number : 2}}</p>
-          <p>&nbsp;</p>
-          <p>{{countyData.detail.infra.highway_avg | number : 2}}</p>
-          <p>{{countyData.detail.infra.streets_avg | number : 2}}</p>
-          <p>{{countyData.detail.infra.fatalities_avg | number : 2}}</p>
-          <p>&nbsp;</p>
-          <p>{{countyData.detail.air.nitro_avg | number : 2}}</p>
-          <p>{{countyData.detail.air.sulfur_avg | number : 2}}</p>
-          <p>{{countyData.detail.air.carbon_avg | number : 2}}</p>
-          <p>&nbsp;</p>
-          <p>{{countyData.detail.water.drought_avg | number : 2}}</p>
-          <p>{{countyData.detail.water.mercury_avg | number : 2}}</p>
-          <p>{{countyData.detail.water.arsenic_avg | number : 2}}</p>
-        </div>
-        <div class="col-md-5" ng-show="queryCompareShow">
-          <h3>{{countyDataCompare.county_name}}</h3>
+        <div class="col-md-5">
+          <h3><a ng-click="showCounty(countyDataCompare)">{{countyDataCompare.county_name}}</a></h3>
           <hr />
           <h3>
             <div class="progress">
@@ -138,21 +117,21 @@
             </div>
           </h3>
           <p>&nbsp;</p>
-          <p>{{countyDataCompare.detail.socio.income | currency}}</p>
-          <p>{{countyDataCompare.detail.socio.unemployed | number : 2}}</p>
-          <p><strong>{{countyDataCompare.detail.socio.crimes | number : 2}} <i class="fa fa-check text-success"></i></strong></p>
+          <p ng-class="{'winner' : countyData.detail.socio.income < countyDataCompare.detail.socio.income}">{{countyDataCompare.detail.socio.income | currency}} <i class="fa fa-check text-success"></i></p>
+          <p ng-class="{'winner' : countyData.detail.socio.unemployed > countyDataCompare.detail.socio.unemployed}">{{countyDataCompare.detail.socio.unemployed | number : 2}} <i class="fa fa-check text-success"></i></p>
+          <p ng-class="{'winner' : countyData.detail.socio.crimes > countyDataCompare.detail.socio.crimes}">{{countyDataCompare.detail.socio.crimes | number : 2}} <i class="fa fa-check text-success"></i></p>
           <p>&nbsp;</p>
-          <p>{{countyDataCompare.detail.infra.highway | number : 2}}</p>
-          <p>{{countyDataCompare.detail.infra.streets | number : 2}}</p>
-          <p>{{countyDataCompare.detail.infra.fatalities | number : 2}}</p>
+          <p ng-class="{'winner' : countyData.detail.infra.highway < countyDataCompare.detail.infra.highway}">{{countyDataCompare.detail.infra.highway | number : 2}} <i class="fa fa-check text-success"></i></p>
+          <p ng-class="{'winner' : countyData.detail.infra.streets < countyDataCompare.detail.infra.streets}">{{countyDataCompare.detail.infra.streets | number : 2}} <i class="fa fa-check text-success"></i></p>
+          <p ng-class="{'winner' : countyData.detail.infra.fatalities > countyDataCompare.detail.infra.fatalities}">{{countyDataCompare.detail.infra.fatalities | number : 2}} <i class="fa fa-check text-success"></i></p>
           <p>&nbsp;</p>
-          <p>{{countyDataCompare.detail.air.nitro | number : 2}}</p>
-          <p>{{countyDataCompare.detail.air.sulfur | number : 2}}</p>
-          <p>{{countyDataCompare.detail.air.carbon | number : 2}}</p>
+          <p ng-class="{'winner' : countyData.detail.air.nitro > countyDataCompare.detail.air.nitro}">{{countyDataCompare.detail.air.nitro | number : 2}} <i class="fa fa-check text-success"></i></p>
+          <p ng-class="{'winner' : countyData.detail.air.sulfur > countyDataCompare.detail.air.sulfur}">{{countyDataCompare.detail.air.sulfur | number : 2}} <i class="fa fa-check text-success"></i></p>
+          <p ng-class="{'winner' : countyData.detail.air.carbon > countyDataCompare.detail.air.carbon}">{{countyDataCompare.detail.air.carbon | number : 2}} <i class="fa fa-check text-success"></i></p>
           <p>&nbsp;</p>
-          <p>{{countyDataCompare.detail.water.drought | number : 2}}</p>
-          <p>{{countyDataCompare.detail.water.mercury | number : 2}}</p>
-          <p>{{countyDataCompare.detail.water.arsenic | number : 2}}</p>
+          <p ng-class="{'winner' : countyData.detail.water.drought > countyDataCompare.detail.water.drought}">{{countyDataCompare.detail.water.drought | number : 2}} <i class="fa fa-check text-success"></i></p>
+          <p ng-class="{'winner' : countyData.detail.water.mercury > countyDataCompare.detail.water.mercury}">{{countyDataCompare.detail.water.mercury | number : 2}} <i class="fa fa-check text-success"></i></p>
+          <p ng-class="{'winner' : countyData.detail.water.arsenic > countyDataCompare.detail.water.arsenic}">{{countyDataCompare.detail.water.arsenic | number : 2}} <i class="fa fa-check text-success"></i></p>
         </div>        
       </div>
     </div>

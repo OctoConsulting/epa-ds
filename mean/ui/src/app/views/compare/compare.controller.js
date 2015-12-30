@@ -35,7 +35,9 @@
         $scope.occupied.data = [{ y: 'occupied', a: $scope.housingData.vacancy.number, b: $scope.housingData.occupancy.number}];
 
 
-
+        $scope.showCounty = function (county) {
+          $state.go('app.results', { 'query': county.county_name+','+county.state});
+        }
 
 		    $scope.search = function () {
 		    	if($scope.queryCompare && $scope.queryCompare.length) {

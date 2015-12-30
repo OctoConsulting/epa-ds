@@ -70,7 +70,7 @@
               </tr>
               <tr ng-repeat="row in topFives.socio">
                 <td>{{$index+1}}</td>
-                <td>{{row.countyDescription}}, {{row.stateCode}}</td>
+                <td><a ng-click="showCounty(row)">{{row.countyDescription}}, {{row.stateCode}}</a></td>
               </tr>             
             </table>
           </div>
@@ -85,7 +85,7 @@
               </tr>
               <tr ng-repeat="row in topFives.built">
                 <td>{{$index+1}}</td>
-                <td>{{row.countyDescription}}, {{row.stateCode}}</td>
+                <td><a ng-click="showCounty(row)">{{row.countyDescription}}, {{row.stateCode}}</a></td>
               </tr>               
             </table>
           </div>
@@ -100,7 +100,7 @@
               </tr>
               <tr ng-repeat="row in topFives.air">
                 <td>{{$index+1}}</td>
-                <td>{{row.countyDescription}}, {{row.stateCode}}</td>
+                <td><a ng-click="showCounty(row)">{{row.countyDescription}}, {{row.stateCode}}</a></td>
               </tr>              
             </table>
           </div>
@@ -115,7 +115,7 @@
               </tr>
               <tr ng-repeat="row in topFives.water">
                 <td>{{$index+1}}</td>
-                <td>{{row.countyDescription}}, {{row.stateCode}}</td>
+                <td><a ng-click="showCounty(row)">{{row.countyDescription}}, {{row.stateCode}}</a></td>
               </tr>              
             </table>
           </div>

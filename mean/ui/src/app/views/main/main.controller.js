@@ -16,6 +16,10 @@
 				$scope.topFives.socio = topFives[3].Sociodemographic;				
 			}
 
+      $scope.showCounty = function (row) {
+        $state.go('app.results', { 'query': row.countyDescription+','+row.stateCode});
+      }
+
 
       $scope.search = function () {
       	if($scope.comparing) {

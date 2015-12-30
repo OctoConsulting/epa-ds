@@ -16,7 +16,7 @@
 
     $urlRouterProvider.otherwise( '/' );
     if(location.hostname === 'localhost') {
-      RestangularProvider.setBaseUrl(location.protocol + '//' + location.hostname + (location.port && ':' + 3000));
+      RestangularProvider.setBaseUrl('http://ec2-52-91-210-54.compute-1.amazonaws.com/');
     }
     else {
       RestangularProvider.setBaseUrl(location.protocol + '//' + location.hostname + (location.port && ':' + location.port) + location.pathname);
