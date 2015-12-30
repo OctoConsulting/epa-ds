@@ -1,13 +1,22 @@
+# Environment Protection Agency #
+## Octo Consulting Group ##
+## Response to EPA/OEI Digital Services ##
+
 LIVESAFE
 ========
 
-By Octo Labs
-----------------------
+<p align="center">
+  <img src="https://github.com/OctoConsulting/epa-ds/blob/master/Docs/UI/Graphic%20Resources/LiveSafe-logo.png">
+</p>
 
 About LIVESAFE
 ==============
 
-**LIVESAFE** is a contextual and  situational awareness dashboard build on top of data sets from EPA and the US Census Bureau.  **LIVESAFE** allows the current/prospective residents or business owners who want socioeconomic and environmental information on counties to search **LIVESAFE** by county name and it returns situational data such as median income, % unemployed, travel safety, air quality, water quality, and demographical information such as gender, race and housing.  Additionally, **LIVESAFE** provides users the ability to compare data between two different counties or just view the data graphically for one county. Currently **LIVESAFE** focuses on two different aspects of visualizations: basic bar charts to display historical EPA data and near real-time charts for displaying the more frequently updated US Census Bureau data.
+**LIVESAFE** is a contextual and  situational awareness dashboard build on top of data sets from EPA and the US Census Bureau.  **LIVESAFE** allows the current/prospective residents or business owners who want socioeconomic and environmental information on counties to search **LIVESAFE** by county name and it returns situational data such as median income, % unemployed, travel safety, air quality, water quality, and demographical information such as gender, race and housing.  Additionally, **LIVESAFE** provides users the ability to compare data between two different counties or just view the data graphically for one county. Currently **LIVESAFE** focuses on two different aspects of visualizations: basic bar charts to display historical EPA data and near real-time charts for displaying the more frequently updated US Census Bureau data.  Octo's team used a user-centric approach and followed an agile delivery process in delivering the **LIVESAFE** application across multiple releases. The key highlights of our approach include:
+*	Focus on user experience through the creation of user personas, user testing and market surveys
+*	Use of Scrum to manage the backlog and delivery of the development team
+*	Use of Kanban for managing the backlog for User Interface and User Experience (UI/UX) and DevOps teams
+*	Use of docker containers, docker hub and Jenkins to automate continuous integration and delivery
 
 Deployment Instructions
 =======================
@@ -38,6 +47,11 @@ For example, if the prototype is deployed on port 80, you can access the prototy
 
 Developing LIVESAFE
 ===================
+
+# Our Approach #
+The following diagram outlines our approach for responding to the solicitation and for the continuous delivery of **LIVESAFE**.
+
+![Image of LIFESAFE](https://github.com/OctoConsulting/epa-ds/blob/master/Docs/UI/Graphic%20Resources/approach.png?raw=true)
 
 We designed **LIVESAFE** with the goal of using only open source technologies.  As such we leveraged technologies such as the MEAN stack for development and MongoDB for backend processing.  A full list of the technologies used can be found below:
 
