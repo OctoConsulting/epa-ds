@@ -27,27 +27,26 @@ Prototype URL:
 This will start the container listening on port 80, you can specify a different port by changing docker-compose.yml file. Also, this port will have to be open and accessible on your server.
 
 ### Get the container ID of the image octoconsulting/epa-ds-webapp with docker ps ###
-	# docker ps
-	CONTAINER ID          IMAGE                      	   ...
-	[container_id]        octoconsulting/epa-ds-webapp     ...
-	[container_id]        octoconsulting/epa-ds-database   ...
+# docker ps
+CONTAINER ID          IMAGE                      	   ...
+[container_id]        octoconsulting/epa-ds-webapp     ...
+[container_id]        octoconsulting/epa-ds-database   ...
 
 ### Tell the container to fetch and build the application ###
-	docker exec [container_id] /usr/local/bin/buildWebApp.sh
+docker exec [container_id] /usr/local/bin/buildWebApp.sh
 
 ### ... That's it! ###
 Once the build is complete you can access the application on the port you specified above.
 
 For example, if the prototype is deployed on port 80, you can access the prototype using the following URL:
-
-	http://<IP address of the VM>:80/
+http://<IP address of the VM>:80/
 
 # Developing LIVESAFE #
 
 ## Consuming & Remixing Data ##
 The datasets we chose to use for **LIVESAFE** are:
-*	[Visit data.gov!](http://catalog.data.gov/dataset/usepa-environmental-quality-index-eqi-air-water-land-built-and-sociodemographic-domains-transf)
-*	[Visit Census API!](http://api.census.gov/data/2010/)
+*	[EPA EQI Data @ data.gov](http://catalog.data.gov/dataset/usepa-environmental-quality-index-eqi-air-water-land-built-and-sociodemographic-domains-transf)
+*	[Census Data via Census API](http://api.census.gov/data/2010/)
 
 To create a contextual experience using data from both EPA and Census required some in-depth analysis.  While the census data was straight forward and easy to use the EPA EQI dataset was not and definitely would require a domain SME to digest and make sense of the data.  The EQI data set, untouched, provided the values for each of the chemicals as a standard deviated number which provided no contextual information.  Without the aid of a SME we were stuck.  To mitigate this, we decided to create an algorithm which would 1) covert the standard deviated values to an index of 1 to 100 and then 2) which would covert that to a percentile.  This would then give us a story to tell by contrasting the values of one county against another.  The algorithm is documented belwo:
 1.	Develop a step value which should represent the avergage difference between the values from minium to maximum.  This was determined to be 0.1
