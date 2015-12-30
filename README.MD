@@ -52,10 +52,11 @@ The datasets we chose to use for **LIVESAFE** are:
 *	[Census Data via Census API](http://api.census.gov/data/2010/)
 
 To create a contextual experience using data from both EPA and Census required some in-depth analysis.  While the census data was straight forward and easy to use the EPA EQI dataset was not and definitely would require a domain SME to digest and make sense of the data.  The EQI data set, untouched, provided the values for each of the chemicals as a standard deviated number which provided no contextual information.  Without the aid of a SME we were stuck.  To mitigate this, we decided to create an algorithm which would 1) covert the standard deviated values to an index of 1 to 100 and then 2) which would covert that to a percentile.  This would then give us a story to tell by contrasting the values of one county against another.  The algorithm is documented belwo:
-1.	Develop a step value which should represent the avergage difference between the values from minium to maximum.  This was determined to be 0.1
-2.	Develop a formula to determine the position in the index range: position = [value + step - minvalue] / step
+
+1.  Develop a step value which should represent the avergage difference between the values from minium to maximum.  This was determined to be 0.1
+2.  Develop a formula to determine the position in the index range: position = [value + step - minvalue] / step
 3.  Store the number of total values in a variable: #ofVal = [(maxval - minval)/step] + 1
-4.	Calculate percentile: if negative value [(1 - (position/#ofVal))*100]; if positive value [position/#ofVal]*100
+4.  Calculate percentile: if negative value [(1 - (position/#ofVal))*100]; if positive value [position/#ofVal]*100
 
 ## Future Development ##
 Our intent was to develop about 4 more features but due to time constraints we were unable to do so.  To illustrate that fact and to demonstrate that we went through the necessary planning see screenshot below of our trello backlog:
